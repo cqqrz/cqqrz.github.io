@@ -132,6 +132,147 @@
 			<img src="TH-8600_Pamphlet-small.jpg" alt="TYT TH-8600 Pamphlet" />
 			<p>Local mirror: <a href="TH-8600_Pamphlet.jpg">download</a></p>
 		  </li>
+        </ul>
+      </dd>
+      
+      <dt>The missing Programming Software Manual</dt>
+	  <dd>
+        <p><u>Channel</u><p>
+        <ul>
+          <li><b>Ch Name</b>
+            <p>You can use the channel name to give the programmed channel a meaning full name that is dis
+          <li><b></b>
+            <p></p></li>
+          <li><b></b>
+            <p></p></li>
+          <li><b></b>
+            <p></p></li>
+          <li><b>Power</b>
+            <p>TX (transmission) power "High", "MID", "Low"</p></li>
+          <li><b>Step</b>
+            <p></p></li>
+          <li><b>Wide</b>
+            <p></p></li>
+          <li><b>Signal</b>
+            <p></p></li>
+          <li><b>Sql Type</b>
+            <p></p></li>
+          <li><b>DTMF PTTID</b>
+            <p></p></li>
+          <li><b>5Tone PTTID</b>
+            <p></p></li>
+          <li><b>B_Lock</b>
+            <p></p></li>
+          <li><b>Scan</b>
+            <p>"Allow" includes the channel in the scan.  "Skip" skips the channel when scanning. </p></li>
+          <li><b>Talk Off</b>
+            <p></p></li>
+          <li><b>Rev</b>
+            <p></p></li>
+          <li><b>Tx Inh</b>
+            <p>Inhibit transmissions (i.e. receive only on this channel).</p></li>
+            
+        </ul>
+
+        <p><u>Basic</u><p>
+        <ul>
+          <li><b>Dis Mode</b>
+            <p>"Frequency" displays the channel name if one is specified, otherwise the frequency is displayed.  "Chanel" displays the channel number. "Name" 
+            displays the channel name if one is specified, otherwise the memory number is displayed. Note that the channel number and memory number are identical.</p>
+            <p>My choice is: Frequency</p></li>
+          <li><b>Sub Screen</b>
+            <p>The A VFO is displayed on top and the B VFO is displayed on the bottom of the screen. (Use the A/B switch to change the active VFO, which is indicated 
+            by an error on the left side. The "OFF setting does not display the inactive VFO.  The "Voltage" settings displays the power voltage in the space of the 
+            inactive VFO. The "Frequency" setting displays the channel name  if one is specified, otherwise the frequency of the inactive VFO.</p>
+            <p>NOTE: The radio only monitors the active and inactive channels (also known as dual watch) when this setting is set to "Frequency".  Otherwise only the 
+            active channel is monitored</p>
+            <p>My choice is: Frequency</p></li>
+          <li><b>Sql Lev</b>
+            <p>Squelch level.  The "OFF" setting turns the squelch off.  I didn't noticed much difference between the other squelch settings.</p>
+            <p>My choice is: 1<p></li>
+          <li><b>Repeater tone</b>
+            <p>TBST is used to activate some dormat repeaters. 1000Hz, 1450Hz, 1750Hz or 2100Hz can be specified. Press the 
+            PTT and volume-down key on the mic to transmit the tone burst.</p></li>
+          <li><b>PTT Release</b>
+            <p>???</p>
+            <p>My choice is: OFF</p></li>
+          <li><b>Tx Ch Select</b>
+            <p>???</p>
+            <p>My choice is: Main CH</p></li>
+          <li><b>LED Mode</b>
+            <p>Specify if the LCD backlight should turn off after 5 or 10 seconds. The "On" setting keeps the LCD backlight on whenever the radio is turned on.</p>
+            <p>My choice is: ON</p></li>
+          <li><b>Language Sel</b>
+            <p>Menu language.  This setting can't be changed via the programming software.</p></li>
+          <li><b>Scan Type</b>
+            <p>"TO" (Time Operation) Scan stops when signal detected. Scan resumes after after predetermined time ("Resume Time"). "CO" (Carrier Operation) Scan stops when signal detected. Scan resumes when signal disappears. "SE" (Search Operation) Scan stops when signal detected. Scanning will not resume. </p>
+            <p>My choice is: Se</li>
+          <li><b>Resume Time</b>
+            <p>Only used with scan type "TO".  This sets the time when scan resumes.</p></li>
+          <li><b>tail_elim</b>
+            <p>Squelch Tail Elimination</p>
+            <p>My choise is: OFF</li>
+          <li><b>Power Off</b>
+            <p>Automatically power radio off if no operation has occured for the specified period of 30, 60, or 120 minutes.  The "OFF" setting turns this feature off,
+            causing the radio never to turn off automatically.  On my radio I measured a usage of 0.25A when the radio is on (receive) and 0.01A when the 
+            radio is off.</p>
+            <p>My choice is: 1 Hour</p></li>
+          <li><b>TOT</b>
+            <p>Time-out Timer setting is used to stop transmission after the specified minutes.  This is done to stop transmission in case the PTT button is pushed 
+            by accident. 1 to 30 minutes can be specified.  The "OFF" setting turns this feature off, allowing transmission to go indefinitely.</p>
+            <p>My choice is: 5</p></li>
+          <li><b>Beep</b>
+            <p>Turn on/off the beeps when buttons are pushed or knobs are turned.</p>
+            <p>My choice is: OFF</p></li>
+          <li><b>Volume</b>
+            <p>Initial volume level after programming.  The last volume level will be used for any other time the radio is powered up.</p></li>
+          <li><b>Use Boot-Strap Password</b>
+            <p>When checked the radio requires a one to six digit pin on powered up.  This feature keeps non authorized users from using the radio. Use the "Code" 
+            field to specify the pin.  Note that a blank code field has the same effect as unchecking this option.</p>
+            <p>My choice is: not checked</p></li>
+          <li><b>LO, Mz, CT, V/M, AB</b>
+            <p>Programm the softkeys besides the screen. Valid option for each key are:</p>
+            <ul>
+              <li>KEY-A/B<br />
+                Short press: Switch between A and B as active VFO.<br />
+                Long press: Switch between VHF and UHF in frequency mode.<br /></li>
+              <li>KEY-Low<br/>
+                Short press: Cycle through TX power (high, medium, low).<br />
+                Long press: Change frequency offset direction. Note that the left knob can then used to ajust the offset frequency.</li>
+              <li>KEY-MONI<br />
+                Short press: Start monitoring (i.e. turn squelch off).<br />
+                Long press: Turn on/off the channel name display (shows frequency instead).<br /></li>
+              <li>KEY-SCAN<br />
+                Short press: Start/stop scanning.<br />
+                Long press: Does nothing.<br /></li>
+              <li>KEY-TONE<br />
+                Short press: Cycle through none, CTCSS Encode, CTCSS Encode and Decode, DCS Encode and Decode.<br />
+                Long press: Does nothing.<br /></li>
+              <li>KEY-M/V<br />
+                Short press: Switch active VFO between frequeny and channel mode.<br />
+                Long press: Store the channel.  Note that the left knob can then be used to select the channel.<br /></li>
+              <li>KEY-MHZ<br />
+                Short press: In frequency mode change frequencies in 1MHz steps. In channel mode go in 10 increments through channels.<br />
+                Long press: In frequency mode change frequencies in 10MHz steps.<br /></li>
+              <li>KEY-MUTE<br />
+                Short press: Toggle volume reduction on/off.<br />
+                Long press: Does nothing.<br /></li>
+            </ul></li>
+          <li><b>Inhibit To Setup Background Operation</b>
+            <p>Disable the menu on the radio (i.e. can't change settings on the radio).</p>
+            <p>My choice is: Not checked</p></li>
+          <li><b>Eliminate Squelch Tail When No Ctc/Dcs Signaling</b>
+            <p>When no CTCSS or DCS is set the radio transmitts a tail elimination tone. This causes compatible radios to mute when they 
+            receive. This option is disabled when "tail_elim" is set to off.</p><li>
+          <li><b>inhibit intialize</b>
+            <p>When checked the operator can't perform a factory/settings reset on the radio.</p>
+            <p>My choice is: Checked</p></li>
+          <li><b>Intro Screen</b>
+            <p>What is displayed when the radio is turned on.  "OFF" nothing special is displayed. "Char String" provides two text lines that allows some
+            text to displayed.  "Picture" shows logo.  I haven't found a way to upload a custom picture.</p></li>
+        </ul>
+
+      </dd>
     </dl>
 
     </div>
