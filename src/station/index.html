@@ -1,14 +1,196 @@
 <!-- build:title -->Station<!-- /build:title -->
 <!-- build:content -->
-    <h3> HF Station</h3>
+    <h3> HF Home Station</h3>
+    <p>My home station is the Icom IC-7300.  The transceiver has no modification.  Besides the common clock battery issue (aka loosing of time) the transceiver is great. 
+    </p>
+    <p>To deal with clock issue I've greated the <a href="https://github.com/cniesen/IcomClockOmniRig">IcomClockOmniRig</a> Windows executable to set the Icom IC-7300 clock via OmniRig.  
+       That works out quite well and I can set the IC-7300's clock to UTC as well.  Check IcomClockOmniRig program out if you have an IC-7300.  For non-windows computers you may want to 
+       check out the <a href="https://github.com/cniesen/IC-7300-time-sync">IC-7300-time-sync</a> Python script.  The only drawback here is that the COM port can't be shared like with OmniRig.
+    </p>
+    <p>I'm using a Dell Latitude E6540 laptop with the Dell Dell E-Port Plus port replicator (aka dock) running windows.  The computer is connected to the IC-7300 via the USB A-to-B cable 
+    and the USB to CI-V cable.  This allows two programs to communicate with the IC-7300 concurrently via different COM ports.  I run OmniRig on the CI-V port and whatever digital mode I 
+    use on the USB port. 
+    </p>
+    <p>To enable this in the IC-7300 the following settings are used:</p>
+    <ul>
+      <li> Set -> Connections -> CI-V -> CI-V Baud Rate: 19200 (fastest speed)</li>
+      <li> Set -> Connections -> CI-V -> CI-V Address: 94h (default)</li>
+      <li> Set -> Connections -> CI-V -> CI-V Transceive: OFF)</li>
+      <li> Set -> Connections -> CI-V -> CI-V Output (for ANT): OFF)</li>
+      <li> Set -> Connections -> CI-V -> CI-V USB Port: Unlink from [REMOTE] (This separates the CI-V and USB ports from each other so they can utelize different speeds.)</li>      
+      <li> Set -> Connections -> CI-V -> CI-V USB Baud Rate: 115200 (fastest speed)</li>
+      <li> Set -> Connections -> CI-V -> CI-V USB Echo Back: ON</li>
+    </ul>
+      
     <dl>
-      <dt> Icom IC-7300</dt>
-	  <dt> Yaesu FT-857D</dt>
+      <dt>OmniRig Rig Control</dt>
+      <dd>
+        <p>OmniRig allows multiple programs to communicate via a single COM port with the transceiver.  The awsomeness of this is that you don't need to shut down an app while using another
+        app concurrently.  <a href="http://www.dxatlas.com/omnirig/">OmniRig</a> is free and the source code is availiable.  The code is very mature and works great.  The only downside is 
+        that it works only with Windows due to the technology used.<p>
+        <p>My OmniRig configuration is as follows:</p>
+        <ul>
+          <li>Rig type: IC-7300</li>
+          <li>Port: COM 20</li>
+          <li>Baud Rate: 19200</li>
+          <li>Data bits: 8</li>
+          <li>Parity: None</li>
+          <li>Stop bits: 1</li>
+          <li>RTS: Low</li>
+          <li>DTR: Low</li>
+          <li>Poll int., ms: 300</li>
+          <li>Timeout, ms: 4000</li>
+        </ul>
+      </dd>
     </dl>
+    <dl>
+      <dt>Log4OM Logging Software</dt>
+      <dd>
+        <p>For logging I primarely use <a href="https://www.log4om.com/">Log4OM</a>, a free but not open source Windows logging software that utelizes OmniRig for rig control.</p>
+        <p>I use OmniRig for cat control with the following settings:</p>
+        <ul>
+          <li>CAT Engine: Omnirig</li>
+          <li>Auto start CAT: checked</li>
+        </ul>
+        <p>To allow WSJT-X automatically add log entries I added the following settings under "Software Integration" -> "Connections" -> "UDP INBOUND":
+        <ul>
+          <li>Port: 2333</li>
+          <li>Connection name: WSJT-X ADIF</li>
+          <li>Service type: ADIF_MESSAGE</li>
+        </ul> 
+        <p>Similarely to allow logging with my POTA Logger software I added the following settings under "Software Integration" -> "Connections" -> "UDP INBOUND":  
+        <ul>
+          <li>Port: 8899</li>
+          <li>Connection name: POTA LOGGER</li>
+          <li>Service type: ADIF_MESSAGE</li>
+        </ul> 
+      </dd>
+    </dl>
+    <dl>
+      <dt>WSJT-X</dt>
+      <dd>
+        <p>An introduction to WSJT-X isn't needed with FT8 being so popular.  The <a href="https://physics.princeton.edu/pulsar/k1jt/wsjtx.html">WSJT-X software</a> is free and 
+        open source.  Occasionally I do run other modes like FT4 or JT65.</p>
+        <p>My WSJT-X rig control settings are:</p>
+        <ul>
+          <li>Rig: IC-7300</li>
+          <li>Poll Interval: 1s</li>
+          <li>Serial Port: COM4</li>
+          <li>Baud Rate: 115200</li>
+          <li>Data Bits: Eight</li>
+          <li>Stop Bits: Two</li>
+          <li>Handshake: None</li>
+          <li>DTR: Low</li>
+          <li>RTS: Low</li>
+          <li>PTT Method: Cat</li>
+          <li>Mode: Data/Pkt</li>
+          <li>Split Operation: Fake It</li>
+        </ul>
+        <p>I have ADIF broadcasting enabled as this allows for automated loggin into Log4OM.  The required settings on the WSJT-X side are under the "Reporting" -> "Secondary UDP Server (depreciated)":</p>
+        <ul>
+          <li>Enable logged contact ADIF broadcast: checked</li>
+          <li>Server name or IP address: 127.0.0.1</li>
+          <li>Server port number: 2333</li>
+        </ul>
+      </dd>
+    </dl>
+    <dl>
+      <dt>Fldigi</dt>
+      <dd>
+        <p>Fldigi is the allround tool for digital communication. The <a href="http://www.w1hkj.com/">Fldigi software</a> is free and open source.  Some of my used modes are PSK, RTTY and Hell.</p>
+        <p>I use RigCat with the following settings:</p>
+        <ul>
+          <li>Rig description file: IC-7300.xml</li>
+          <li>Device: COM4</li>
+          <li>Retries: 5</li>
+          <li>Retry interval (ms): 50</li>
+          <li>Write delay (ms): 0</li>
+          <li>Init delay (ms)</li>
+          <li>Baud rate: 115200</li>
+          <li>Stopbits: 1</li>
+          <li>Commands are echoed: checked</li>
+          <li>CAT command for PTT: checked</li>
+          <li>Toggle RTS for PTT: unchecked</li>
+          <li>Toggle DTR for PTT: unchecked</li>
+          <li>RTS +12v: unchecked</li>
+          <li>DTR +12v: unchecked</li>
+          <li>RTS/CTS flow control: unchecked</li>
+          <li>VSP Enable: unchecked</li>
+          <li>Restore UART Settings on Close: checked</li>
+        </ul>
+      </dd>
+    </dl>
+    <dl>
+      <dt>JS8Call</dt>
+      <dd>
+        <p>JS8Call took FT8 one step further and made it into a mode that can be used for real communicaton.  The <a href="http://js8call.com/">JS8Call</a> is free and open source.  The project has 
+        received the <a href="https://arsaward.com/award-recipients.html">2021 Amateur Radio Software Award</a>
+        <p>My JS8Call rig control settings are:</p>
+        <ul>
+          <li>Rig: IC-7300</li>
+          <li>Serial Port: COM4</li>
+          <li>Baud Rate: 115200</li>
+          <li>Data Bits: Default</li>
+          <li>Stop Bits: Default</li>
+          <li>Handshake: Default</li>
+          <li>DTR: <blank></li>
+          <li>RTS: <blank></li>
+          <li>PTT Method: Cat</li>
+          <li>Mode: Data/Pkt</li>
+          <li>Split Operation: Fake It</li>
+          <li>Tx delay: 0.2s</li>
+        </ul>
+      </dd>
+    </dl>
+    <dl>
+      <dt>N3FJP Logger</dt>
+      <dd>
+        <p>If I'm somewhat serious about running a contest I install the <a href="https://www.n3fjp.com/">N3FJP logging software</a> for the specific contest since I already bought
+        the bundle and the logger is easy to use.<p>
+        <p>My rig settings are:</p>
+        <ul>
+          <li>Select Rig: Icom</li>
+          <li>Com Port: COM4</li>
+          <li>Baud Rate: Other 115200</li>
+          <li>Parity: None</li>
+          <li>Data Bits: 8</li>
+          <li>Stop Bits: 1</li>
+          <li>Connection Power: None</li>
+          <li>Radio Polling Rate: 500 ms</li>
+          <li>Mede Determined By: Rig</li>
+          <li>Command to Read Frequency: FE FE 94 E0 03 FD</li>
+          <li>Command to Read Mode: FE FE 94 E0 04 FD</li>
+        </ul>
+      </dd>
+    </dl>
+    <dl>
+      <dt>IcomClockOmniRig</dt>
+      <dd>
+        <p>As mentioned above, I'm using the IcomClockOmniRig to set the time to UTC on the IC-7300.  <a href="https://github.com/cniesen/IcomClockOmniRig">IcomClockOmniRig</a> is free, open 
+        source and has been rock solid for me.  Of course I'm the author of the program.  The following command runs whenever I start up Log4OM but I also have the same
+        command availiable as a shortcut in case I want to execute it some other time:</p>
+        <code>IcomClockOmniRig.exe -u</code>
+      </dd>
+    </dl>
+    <dl>
+      <dt>NetLogger Elf</dt>
+      <dd>
+        <p>For logging and participating in the 3905 Century Club nets and occasionally the OMISS nets I use the free but not open source <a href="https://www.netlogger.org/">Netlogger 
+        software</a> I wrote the <a href="https://github.com/cniesen/NetLoggerElf">NetLogger Elf software</a> to print QSL cards and insert logs into Log4OM.  While this software is free and open source, it's not
+        at a state that it's easy to use for other people.</p>
+      </dd>
+    </dl>
+    <dl>
+      <dt>Claus' Pota Logger</dt>
+      <dd>
+        <p>When going on POTA activations I end up logging on paper.  To enter the QSOs more efficiently into Log4OM I created <a href="https://github.com/cniesen/PotaLogger">Claus' Pota Logger</a> as a free 
+        and open source program.  Just like the NetLogger Elf, the log entries into Log4OM are done via ADIF messages via UDP.</p>
+      </dd>
+    </dl>
+    
+    <h3> HF Station Portable Station</h3>
+    <p>I'm using a Yeasu FT-857d with an LDG YT100 tuner for portable operations like POTA activations.</p>
 
     <h3> VHF/UHF Station </h3>
-    <dl>
-	  <dt> Yaesu FT-857D</dt>
-      <dt> Boafeng UV-82 </dt>
-    </dl>
+    <p>I'm not very active on VHF and UHF.  Besides the Yeasu FT-857d i have a TYT TH-8600 and a couple Boafeng UV-82.</p>
 <!-- /build:content -->
