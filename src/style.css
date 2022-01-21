@@ -53,6 +53,16 @@ blockquote {
     text-align: center;
 }
 
+.memberships {
+    font: italic 14px/22px normal helvetica, sans-serif;
+    color: #6699cc;
+    text-align: center;
+}
+.memberships div {
+    display: inline-block;
+    padding-inline: 20px;
+}
+
 @media screen and (max-width: 1160px) {
     #upper_left {display: none;}
     #upper_right {display: none;}
