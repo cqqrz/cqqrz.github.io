@@ -1,0 +1,151 @@
+<!-- build:title -->Ham / Callsign Fonts<!-- /build:title -->
+<!-- build:content -->
+    <h3 class="status-on-hold">Ham / Callsign Fonts</h3>
+	<p>
+	  There is a justifiable desire to use slashed zeros for callsigns.  It makes identifying callsigns correctly much easier.  
+    </p>
+    <p>
+      However, please do not use some special characters in order to display these slashed zeros.  Bad things will happen if you do.  You can't easily search for call signs.  Sometimes these special characters won't display right for some people.  And I won't like you for doing this.
+    </p>
+    <p>
+      The proper way to display slashed zeros is by using the proper font.  This page contains fonts that have slashed zeros.
+	</p>
+    <p>
+      Personally, my favorite font is Atkinson Hyperlegible.
+    </p>
+  <p>
+    <label for="fSearch">Search</label>
+    <input type="text" id="fSearch" name="fSearch"> 
+    <div id="players"></div>
+
+    <link href="../../lib/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../../lib/tabulator.min.js"></script>
+    <script>
+       var tabledata = [{
+          fontName: 'Robot Mono',
+          license: '<a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>',
+          links: '<a href="https://fonts.google.com/specimen/Roboto+Mono">Google Fonts</a>'
+        }, {
+          fontName: 'Orbitron',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Orbitron">Google Fonts</a>'
+        }, {
+          fontName: 'PT Mono',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://www.paratype.com/fonts/pt/pt-mono">Paratype</a>, <a href="https://fonts.google.com/specimen/PT+Mono">Google Fonts</a>'
+        }, {
+          fontName: 'Mitr',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Mitr">Google Fonts</a>'
+        }, {
+          fontName: 'Audiowide',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Audiowide">Google Fonts</a>'
+        }, {
+          fontName: 'Anonymous Pro',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Anonymous+Pro">Google Fonts</a>'
+        }, {
+          fontName: 'Allerta',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Allerta">Google Fonts</a>'
+        }, {
+          fontName: 'Fira Code',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://github.com/tonsky/FiraCode>Github</a>, <a href="https://fonts.google.com/specimen/Fira+Code">Google Fonts</a>'
+        }, {
+          fontName: 'Wallpoet',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Wallpoet">Google Fonts</a>'
+        }, {
+          fontName: 'Oxygen Mono',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Oxygen+Mono">Google Fonts</a>'
+        }, {
+          fontName: 'Atkinson Hyperlegible',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://brailleinstitute.org/freefont">Braille Institute</a>, <a href="https://github.com/googlefonts/atkinson-hyperlegible">Github</a>, <a href="https://fonts.google.com/specimen/Atkinson+Hyperlegible">Google Fonts</a>'
+        }, {
+          fontName: 'Nova Mono',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Nova+Mono">Google Fonts</a>'
+        }, {
+          fontName: 'Stalinist One',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Stalinist+One">Google Fonts</a>'
+        }, {
+          fontName: 'Sedgwick Ave',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Sedgwick+Ave">Google Fonts</a>'
+        }, {
+          fontName: 'Sedgwick Ave Display',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Sedgwick+Ave+Display">Google Fonts</a>'
+        }, {
+          fontName: 'Macondo Swash',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Macondo">Google Fonts</a>'
+        }, {
+          fontName: 'Macondo Swash Caps',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Macondo+Swash+Caps">Google Fonts</a>'
+        }, {
+          fontName: 'Red Hat Mono',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://github.com/RedHatOfficial/RedHatFont">Github</a>, <a href="https://fonts.google.com/specimen/Red+Hat+Mono">Google Fonts</a>'
+        }, {
+          fontName: 'Offside',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Offside">Google Fonts</a>'
+        }, {
+          fontName: 'Mohave',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://github.com/tokotype/mohave+typefaces">Github</a>, <a href="https://fonts.google.com/specimen/Mohave">Google Fonts</a>'
+        }, {
+          fontName: 'Geostar',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Geostar">Google Fonts</a>'
+        }, {
+          fontName: 'Geostar Fill',
+          license: '<a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>',
+          links: '<a href="https://fonts.google.com/specimen/Geostar+Fill">Google Fonts</a>'
+        }];
+
+      const input = document.getElementById("fSearch");
+      input.addEventListener("keyup", function() {
+          table.setFilter(matchAny, { value: input.value });
+          if (input.value == " ") {
+              table.clearFilter()
+          }
+      });
+
+      function matchAny(data, filterParams) {
+        //data - the data for the row being filtered
+        //filterParams - params object passed to the filter
+        //RegExp - modifier "i" - case insensitve
+
+        var match = false;
+        const regex = RegExp(filterParams.value, 'i');
+
+        for (var key in data) {
+            if (regex.test(data[key]) == true) {
+                match = true;
+            }
+        }
+        return match;
+      }
+
+        var table = new Tabulator("#players", {
+            data: tabledata,
+            layout: "fitColumns",
+            tooltips: true,
+            columns: [
+              {title: "Font Name", field: "fontName"},
+              {title: "License", field: "license", formatter:"html"},
+              {title: "Info / Download", field: "links", formatter:"html"},
+            ]
+        });
+    </script>
+  </p>
+
+<!-- /build:content -->
