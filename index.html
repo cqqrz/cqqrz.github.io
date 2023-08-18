@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="/menu/style.css" />
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Allerta" rel="stylesheet"> 
+	<script src="/lib/mastodon-timeline.min.js"></script>
+	<link rel="stylesheet" href="/lib/mastodon-timeline.min.css" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSTBPZ3MJP"></script>
@@ -101,10 +103,12 @@
         <div>Field Hell Club: FH6752</div>
       </div>
       <hr />
-      <div style="max-width: 400px; margin: auto;">
-        <a class="twitter-timeline" data-dnt="true" data-tweet-limit="1" href="https://twitter.com/cqqrz?">Tweets by AE0S</a>
-        <script src="https://platform.twitter.com/widgets.js"></script>
+	  <div class="mt-timeline">
+          <div id="mt-body" class="mt-body" role="feed">
+              <div class="loading-spinner"></div>
+          </div>
       </div>
+
 
     </div>
   </body>
