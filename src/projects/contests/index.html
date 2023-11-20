@@ -1,0 +1,169 @@
+<!-- build:title -->Contests<!-- /build:title -->
+<!-- build:content -->
+    <h3 class="status-active">Contests</h3>
+	<p>
+	  I'm a casual contester.  Most contest I just decide at the spur of the moment to participate without any prior planning and preporation.  Often working only part of the contest. 
+    </p>
+  <p>
+    <label for="fSearch">Search</label>
+    <input type="text" id="fSearch" name="fSearch"> 
+    <div id="contests"></div>
+
+    <link href="../../lib/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../../lib/tabulator.min.js"></script>
+    <script>
+       var tabledata = [{
+          date: '2023-09-16',
+          contest: 'Iowa QSO Party',
+          score: '8,964',
+          overall_place: '12th Place Overall',
+          category: 'Iowa High Power Class',
+          place: '3rd Place',
+          certificate: '2023 Iowa QSO Party - AE0S.pdf'
+        }, {
+          date: '2023-03-04',
+          contest: 'ARRL DX Phone Contest',
+          score: '76,944',
+          overall_place: '',
+          category: 'Single Operator Unlimited, High Power',
+          place: '4th Place Iowa Section',
+          certificate: '2023 ARRL DX Phone Contest - AE0S.pdf'
+        }, {
+          date: '2022-09-17',
+          contest: 'Iowa QSO Party',
+          score: '19,320',
+          overall_place: '5th Place Overall',
+          category: 'Iowa High Power Class',
+          place: '1st Place',
+          certificate: '2022 Iowa QSO Party - AE0S.pdf'
+        }, {
+          date: '2022-02-26',
+          contest: 'CQ World Wide 160-Meter SSB',
+          score: '645',
+          overall_place: '173th Place Overall (World)',
+          category: 'Single Operator High Power',
+          place: '1st Place Iowa, 9th Place Call Area 0, 93rd Place USA',
+          certificate: '2022 CQ 160m SSB - AE0S.pdf'
+        }, {
+          date: '2021-09-18',
+          contest: 'Iowa QSO Party',
+          score: '1,590',
+          overall_place: '16th Place Overall',
+          category: 'Iowa High Power Class',
+          place: '4th Place',
+          certificate: '2021 Iowa QSO Party - AE0S.pdf'
+        }, {
+          date: '2021-03-06',
+          contest: 'ARRL DX Phone Contest',
+          score: '1,188',
+          overall_place: '',
+          category: 'Single Operator Unlimited, High Power',
+          place: '4th Place Iowa Section',
+          certificate: '2021 ARRL DX Phone Contest - AE0S.pdf'
+        }, {
+          date: '2021-02-27',
+          contest: 'CQ World Wide 160-Meter SSB',
+          score: '3,348',
+          overall_place: '325th Place Overall (World)',
+          category: 'Single Operator Assisted High Power',
+          place: '2st Place Iowa, 19th Place Call Area 0, 148 Place USA',
+          certificate: '2021 CQ 160m SSB - AE0S.pdf'
+        }, {
+          date: '2021-01-02',
+          contest: 'ARRL RTTY Roundup',
+          score: '893',
+          overall_place: '',
+          category: 'Single Operator, RTTY Only, High Power',
+          place: '2th Place Iowa Section',
+          certificate: '2021 ARRL RTTY Roundup - AE0S.pdf'
+        }, {
+          date: '2020-09-19',
+          contest: 'Iowa QSO Party',
+          score: '7,440',
+          overall_place: '20th Place Overall',
+          category: 'Iowa Single-Op Mobile/Portable Class',
+          place: '5th Place',
+          certificate: '2020 Iowa QSO Party - AE0S.pdf'
+        }, {
+          date: '2019-09-21',
+          contest: 'Iowa QSO Party',
+          score: '559',
+          overall_place: '28th Place Overall',
+          category: 'Iowa Single-Op Fixed Class',
+          place: '7th Place',
+          certificate: '2019 Iowa QSO Party - AE0S.pdf'
+        }, {
+          date: '2019-06-',
+          contest: 'ARRL June VHF Contest',
+          score: '1,768',
+          overall_place: '',
+          category: 'Single Operator, 3 Band',
+          place: '2nd Place Iowa Section, 5th Place Midwest Division',
+          certificate: '2019 ARRL June VHF Contest - AE0S.pdf'
+        }, {
+          date: '2018-09-15',
+          contest: 'Iowa QSO Party',
+          score: '690',
+          overall_place: '11th Place Overall',
+          category: 'Iowa Single-Op Fixed Class',
+          place: '6th Place',
+          certificate: '2018 Iowa QSO Party - AE0S.pdf'
+        }, {
+          date: '2017-09-16',
+          contest: 'Iowa QSO Party',
+          score: '845',
+          overall_place: '20th Place Overall',
+          category: 'Iowa Single-Op Mobile/Portable Class',
+          place: '4th Place',
+          certificate: '2017 Iowa QSO Party - AE0S.pdf'
+        }, {
+          date: '2017-04-16',
+          contest: 'ARRL Rookie Roundup - SSB',
+          score: '392',
+          overall_place: '20th Place Overall',
+          category: 'Iowa Single-Op Mobile/Portable Class',
+          place: '3rd Place - Single Op, Call Area W0',
+          certificate: '2017 ARRL Rookie Roundup - SSB - AE0S.pdf'
+        }];
+
+      const input = document.getElementById("fSearch");
+      input.addEventListener("keyup", function() {
+          table.setFilter(matchAny, { value: input.value });
+          if (input.value == " ") {
+              table.clearFilter()
+          }
+      });
+
+      function matchAny(data, filterParams) {
+        //data - the data for the row being filtered
+        //filterParams - params object passed to the filter
+        //RegExp - modifier "i" - case insensitve
+
+        var match = false;
+        const regex = RegExp(filterParams.value, 'i');
+
+        for (var key in data) {
+            if (regex.test(data[key]) == true) {
+                match = true;
+            }
+        }
+        return match;
+      }
+
+        var table = new Tabulator("#contests", {
+            data: tabledata,
+            layout: "fitColumns",
+            tooltips: true,
+            columns: [
+              {title: "Date", field: "date"},
+              {title: "Contest", field: "contest", formatter:"html"},
+              {title: "Score", field: "score"},
+              {title: "Overall Placement", field: "overall_place"},
+              {title: "Category", field: "category"},
+              {title: "Category Placement", field: "place"},
+              {title: "Certificate", field: "certificate", formatter: "link"}
+            ]
+        });
+    </script>
+  </p>
+<!-- /build:content -->
