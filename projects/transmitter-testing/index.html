@@ -14,8 +14,256 @@
     <link rel="stylesheet" type="text/css" href="/menu/style.css" />
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Allerta" rel="stylesheet"> 
-	<script src="/lib/mastodon-timeline.min.js"></script>
-	<link rel="stylesheet" href="/lib/mastodon-timeline.min.css" />
+	
+    <link href="/lib/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/lib/tabulator.min.js"></script>
+    <script>
+       var dataVhfUhf = [{
+          date: '2024-02-17',
+          brand: 'Baofeng',
+          model: 'UV-82',
+          twoMeter: 'fail',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Kenwood',
+          model: 'TH-F6A',
+          twoMeter: 'pass',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Yaesu',
+          model: 'FT-4X',
+          twoMeter: 'pass',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'not tested'
+        }, {
+          date: '2024-02-17',
+          brand: 'Bridgecom',
+          model: 'BCH-270',
+          twoMeter: 'fail',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'fail'
+        }, {
+          date: '2024-02-17',
+          brand: 'AnyTone',
+          model: 'AT-D878UVII Plus',
+          twoMeter: 'pass',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Radioddity',
+          model: 'GS-5B',
+          twoMeter: 'fail',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Icom',
+          model: 'ID-51',
+          twoMeter: 'pass',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Yaesu',
+          model: 'FT-70D',
+          twoMeter: 'pass',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Helida',
+          model: 'T-M2D',
+          twoMeter: 'fail',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'not applicable'
+        }, {
+          date: '2024-02-17',
+          brand: 'Wouxun',
+          model: 'KG-UV9D',
+          twoMeter: 'pass',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Kenwood',
+          model: 'TH-D72',
+          twoMeter: 'pass',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Kenwood',
+          model: 'TH-G71',
+          twoMeter: 'pass',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Kenwood',
+          model: 'TH-G71',
+          twoMeter: 'pass',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Kenwood',
+          model: 'TH-G71',
+          twoMeter: 'pass',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Kenwood',
+          model: 'TH-G71',
+          twoMeter: 'pass',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'TYT',
+          model: 'MD-380',
+          twoMeter: 'not applicable',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Icom',
+          model: 'IC-V80',
+          twoMeter: 'pass',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'not applicable'
+        }, {
+          date: '2024-02-17',
+          brand: 'Baofeng',
+          model: 'UV-5R',
+          twoMeter: 'fail',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'fail'
+        }, {
+          date: '2024-02-17',
+          brand: 'Baofeng',
+          model: 'UV-5R',
+          twoMeter: 'fail',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Baofeng',
+          model: 'UV-5R',
+          twoMeter: 'fail',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-18',
+          brand: 'Baofeng',
+          model: 'UV-S9 Plus',
+          twoMeter: '<a href="2024-02-18 Baofeng UV-S9 Plus 2m.png">fail</a>',
+		  oneandonequaterMeter: '<a href="2024-02-18 Baofeng UV-S9 Plus 1.25m.png">fail</a>',
+          seventyCentimeter: '<a href="2024-02-18 Baofeng UV-S9 Plus 70cm.png">fail</a>'
+        }, {
+          date: '2024-02-18',
+          brand: 'Baofeng',
+          model: 'UV-82T',
+          twoMeter: '<a href="2024-02-18 Baofeng UV-82T 2m.png">fail</a>',
+		  oneandonequaterMeter: '<a href="2024-02-18 Baofeng UV-82T 1.25m.png">fail</a>',
+          seventyCentimeter: '<a href="2024-02-18 Baofeng UV-82T 70cm.png">fail</a>'
+        }, {
+          date: '2024-02-18',
+          brand: 'Baofeng',
+          model: 'UV-82',
+          twoMeter: '<a href="2024-02-18 Baofeng UV-82 (1) 2m.png">fail</a>',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: '<a href="2024-02-18 Baofeng UV-82 (1) 70cm.png">fail</a>'
+        }, {
+          date: '2024-02-18',
+          brand: 'Baofeng',
+          model: 'UV-82',
+          twoMeter: '<a href="2024-02-18 Baofeng UV-82 (2) 2m.png">fail</a>',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: '<a href="2024-02-18 Baofeng UV-82 (2) 70cm.png">fail</a>'
+        }, {
+          date: '2024-02-18',
+          brand: 'Baofeng',
+          model: 'UV-82',
+          twoMeter: '<a href="2024-02-18 Baofeng UV-82 (3) 2m.png">fail</a>',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: '<a href="2024-02-18 Baofeng UV-82 (3) 70cm.png">fail</a>'
+        }, {
+          date: '2024-02-18',
+          brand: 'Baofeng',
+          model: 'UV-82',
+          twoMeter: '<a href="2024-02-18 Baofeng UV-82 (4) 2m.png">fail</a>',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: '<a href="2024-02-18 Baofeng UV-82 (4) 70cm.png">fail</a>'
+        }, {
+          date: '2024-02-18',
+          brand: 'Yaesu',
+          model: 'VX-6',
+          twoMeter: '<a href="2024-02-18 Yaesu VX-6 (1) 2m.png">pass</a>',
+		  oneandonequaterMeter: '<a href="2024-02-18 Yaesu VX-6 (1) 1.25m.png">pass</a>',
+          seventyCentimeter: '<a href="2024-02-18 Yaesu VX-6 (1) 70cm.png">pass</a>'
+        }, {
+          date: '2024-02-18',
+          brand: 'Yaesu',
+          model: 'VX-6',
+          twoMeter: '<a href="2024-02-18 Yaesu VX-6 (2) 2m.png">pass</a>',
+		  oneandonequaterMeter: 'did not transmit on this band, huh??',
+          seventyCentimeter: '<a href="2024-02-18 Yaesu VX-6 (2) 70cm.png">pass</a>'
+        }, {
+          date: '2024-02-18',
+          brand: 'TYT',
+          model: 'TH-8600',
+          twoMeter: 'fail (<a href="2024-02-18 TYT TH-8600 low power 2m.png">low</a>, <a href="2024-02-18 TYT TH-8600 medium power 2m.png">medium</a>, <a href="2024-02-18 TYT TH-8600 high power 2m.png">high</a> power)',
+		  oneandonequaterMeter: 'not applicable',
+          seventyCentimeter: 'pass (<a href="2024-02-18 TYT TH-8600 low power 70cm.png">low</a>, <a href="2024-02-18 TYT TH-8600 medium power 70cm.png">medium</a>, <a href="2024-02-18 TYT TH-8600 high power 70cm.png">high</a> power)'
+        }];
+
+      function matchAny(data, filterParams) {
+        //data - the data for the row being filtered
+        //filterParams - params object passed to the filter
+        //RegExp - modifier "i" - case insensitve
+
+        var match = false;
+        const regex = RegExp(filterParams.value, 'i');
+
+        for (var key in data) {
+            if (regex.test(data[key]) == true) {
+                match = true;
+            }
+        }
+        return match;
+      }
+
+    $(document).ready( function() {
+        const input = document.getElementById("fSearch");
+        input.addEventListener("keyup", function() {
+            table.setFilter(matchAny, { value: input.value });
+            if (input.value == " ") {
+                table.clearFilter()
+            }
+        });
+        var table = new Tabulator("#vhfUhfResults", {
+            data: dataVhfUhf,
+            layout: "fitColumns",
+            tooltips: true,
+            columns: [
+              {title: "Date", field: "date"},
+              {title: "Brand", field: "brand"},
+              {title: "Model", field: "model"},
+              {title: "2m", field: "twoMeter", formatter:"html"},
+			  {title: "1.25m", field: "oneandonequaterMeter", formatter:"html"},
+              {title: "70cm*", field: "seventyCentimeter", formatter:"html"}
+            ]
+        });
+    });
+
+    </script>
+
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSTBPZ3MJP"></script>
@@ -107,174 +355,10 @@
       <i>* The FCC does not provide concrete guidance for UHF. The values for the values for VHF were used for 70cm.</i>
     </p>
     <p>
-    <label for="fSearch">Search</label>
-    <input type="text" id="fSearch" name="fSearch"> 
-    <div id="vhfUhfResults"></div>
-
-    <link href="../../lib/tabulator.min.css" rel="stylesheet">
-    <script type="text/javascript" src="../../lib/tabulator.min.js"></script>
-    <script>
-       var dataVhfUhf = [{
-          date: '2024-02-17',
-          brand: 'Baofeng',
-          model: 'UV-82',
-          twoMeter: 'fail',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'Kenwood',
-          model: 'TH-F6A',
-          twoMeter: 'pass',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'Yaesu',
-          model: 'FT-4X',
-          twoMeter: 'pass',
-          seventyCentimeter: 'not tested'
-        }, {
-          date: '2024-02-17',
-          brand: 'Bridgecom',
-          model: 'BCH-270',
-          twoMeter: 'fail',
-          seventyCentimeter: 'fail'
-        }, {
-          date: '2024-02-17',
-          brand: 'AnyTone',
-          model: 'AT-D878UVII Plus',
-          twoMeter: 'pass',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'Radioddity',
-          model: 'GS-5B',
-          twoMeter: 'fail',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'Icom',
-          model: 'ID-51',
-          twoMeter: 'pass',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'Yaesu',
-          model: 'FT-70D',
-          twoMeter: 'pass',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'Helida',
-          model: 'T-M2D',
-          twoMeter: 'fail',
-          seventyCentimeter: 'not applicable'
-        }, {
-          date: '2024-02-17',
-          brand: 'Wouxun',
-          model: 'KG-UV9D',
-          twoMeter: 'pass',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'Kenwood',
-          model: 'TH-D72',
-          twoMeter: 'pass',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'Kenwood',
-          model: 'TH-G71',
-          twoMeter: 'pass',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'Kenwood',
-          model: 'TH-G71',
-          twoMeter: 'pass',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'Kenwood',
-          model: 'TH-G71',
-          twoMeter: 'pass',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'Kenwood',
-          model: 'TH-G71',
-          twoMeter: 'pass',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'TYT',
-          model: 'MD-380',
-          twoMeter: 'not applicable',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'Icom',
-          model: 'IC-V80',
-          twoMeter: 'pass',
-          seventyCentimeter: 'not applicable'
-        }, {
-          date: '2024-02-17',
-          brand: 'Baofeng',
-          model: 'UV-5R',
-          twoMeter: 'fail',
-          seventyCentimeter: 'fail'
-        }, {
-          date: '2024-02-17',
-          brand: 'Baofeng',
-          model: 'UV-5R',
-          twoMeter: 'fail',
-          seventyCentimeter: 'pass'
-        }, {
-          date: '2024-02-17',
-          brand: 'Baofeng',
-          model: 'UV-5R',
-          twoMeter: 'fail',
-          seventyCentimeter: 'pass'
-        }];
-
-      const input = document.getElementById("fSearch");
-      input.addEventListener("keyup", function() {
-          table.setFilter(matchAny, { value: input.value });
-          if (input.value == " ") {
-              table.clearFilter()
-          }
-      });
-
-      function matchAny(data, filterParams) {
-        //data - the data for the row being filtered
-        //filterParams - params object passed to the filter
-        //RegExp - modifier "i" - case insensitve
-
-        var match = false;
-        const regex = RegExp(filterParams.value, 'i');
-
-        for (var key in data) {
-            if (regex.test(data[key]) == true) {
-                match = true;
-            }
-        }
-        return match;
-      }
-
-        var table = new Tabulator("#vhfUhfResults", {
-            data: dataVhfUhf,
-            layout: "fitColumns",
-            tooltips: true,
-            columns: [
-              {title: "Date", field: "date"},
-              {title: "Brand", field: "brand"},
-              {title: "Model", field: "model"},
-              {title: "2m", field: "twoMeter"},
-              {title: "70cm*", field: "seventyCentimeter"}
-            ]
-        });
-    </script>
-  </p>
-
+      <label for="fSearch">Search</label>
+      <input type="text" id="fSearch" name="fSearch"> 
+      <div id="vhfUhfResults"></div>
+    </p>
 
     </div>
   </body>
