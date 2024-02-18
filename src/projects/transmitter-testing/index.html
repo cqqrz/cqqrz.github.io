@@ -1,0 +1,202 @@
+<!-- build:title -->Transmitter Testing<!-- /build:title -->
+<!-- build:content -->
+    <h3 class="status-active">Transmitter Testing</h3>
+	<p>
+	  As a successor of the <a href="/publications/">Spurious Emissions presentation</a>, transmitter testing was offered where we checked for spurious emissions of various radios.  As I'm curious how the various models fare the results
+    </p>
+    <h4>VHF/UHF</h4>
+    <p>
+      FCC Rule 47 CFR 97.307(e):<br/>
+      The mean power of any spurious emission from a station transmitter or external RF power amplifier transmitting on a frequency between 30–225 MHz must be at least 60 dB below the mean power of the fundamental. For a transmitter having a mean power of 25 W or less, the mean power of any spurious emission supplied to the antenna transmission line must not exceed 25 µW and must be at least 40 dB below the mean power of the fundamental emission, but need not be reduced below the power of 10 µW. A transmitter built before April 15, 1977, or first marketed before January 1, 1978, is exempt from this requirement.
+    </p>
+    <p>
+      In other words:
+      <ul>
+        <li>Between 30–225 MHz and more than 25 Watts</li>
+        <ul>
+          <li>60dB below fundamental</li>
+          <ul>
+            <li>At 100W this would be 100 µW</li>
+            <li>At 50W this would be 50 µW<li>
+          </ul>
+          <li>Between 30–225 MHz and 25 Watts or less</li>
+          <ul>
+            <li>For any fundamental 250 mW or more: not more than 25 µW</li>
+            <li>For any fundamental less than 250 mW: 40dB below fundamental or 10 µW</li>
+          </ul>
+        </ul>
+      </ul>
+    </p>
+    <p>
+      <i>* The FCC does not provide concrete guidance for UHF. The values for the values for VHF were used for 70cm.</i>
+    </p>
+    <p>
+    <label for="fSearch">Search</label>
+    <input type="text" id="fSearch" name="fSearch"> 
+    <div id="vhfUhfResults"></div>
+
+    <link href="../../lib/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../../lib/tabulator.min.js"></script>
+    <script>
+       var dataVhfUhf = [{
+          date: '2024-02-17',
+          brand: 'Baofeng',
+          model: 'UV-82',
+          twoMeter: 'fail',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Kenwood',
+          model: 'TH-F6A',
+          twoMeter: 'pass',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Yaesu',
+          model: 'FT-4X',
+          twoMeter: 'pass',
+          seventyCentimeter: 'not tested'
+        }, {
+          date: '2024-02-17',
+          brand: 'Bridgecom',
+          model: 'BCH-270',
+          twoMeter: 'fail',
+          seventyCentimeter: 'fail'
+        }, {
+          date: '2024-02-17',
+          brand: 'AnyTone',
+          model: 'AT-D878UVII Plus',
+          twoMeter: 'pass',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Radioddity',
+          model: 'GS-5B',
+          twoMeter: 'fail',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Icom',
+          model: 'ID-51',
+          twoMeter: 'pass',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Yaesu',
+          model: 'FT-70D',
+          twoMeter: 'pass',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Helida',
+          model: 'T-M2D',
+          twoMeter: 'fail',
+          seventyCentimeter: 'not applicable'
+        }, {
+          date: '2024-02-17',
+          brand: 'Wouxun',
+          model: 'KG-UV9D',
+          twoMeter: 'pass',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Kenwood',
+          model: 'TH-D72',
+          twoMeter: 'pass',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Kenwood',
+          model: 'TH-G71',
+          twoMeter: 'pass',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Kenwood',
+          model: 'TH-G71',
+          twoMeter: 'pass',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Kenwood',
+          model: 'TH-G71',
+          twoMeter: 'pass',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Kenwood',
+          model: 'TH-G71',
+          twoMeter: 'pass',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'TYT',
+          model: 'MD-380',
+          twoMeter: 'not applicable',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Icom',
+          model: 'IC-V80',
+          twoMeter: 'pass',
+          seventyCentimeter: 'not applicable'
+        }, {
+          date: '2024-02-17',
+          brand: 'Baofeng',
+          model: 'UV-5R',
+          twoMeter: 'fail',
+          seventyCentimeter: 'fail'
+        }, {
+          date: '2024-02-17',
+          brand: 'Baofeng',
+          model: 'UV-5R',
+          twoMeter: 'fail',
+          seventyCentimeter: 'pass'
+        }, {
+          date: '2024-02-17',
+          brand: 'Baofeng',
+          model: 'UV-5R',
+          twoMeter: 'fail',
+          seventyCentimeter: 'pass'
+        }];
+
+      const input = document.getElementById("fSearch");
+      input.addEventListener("keyup", function() {
+          table.setFilter(matchAny, { value: input.value });
+          if (input.value == " ") {
+              table.clearFilter()
+          }
+      });
+
+      function matchAny(data, filterParams) {
+        //data - the data for the row being filtered
+        //filterParams - params object passed to the filter
+        //RegExp - modifier "i" - case insensitve
+
+        var match = false;
+        const regex = RegExp(filterParams.value, 'i');
+
+        for (var key in data) {
+            if (regex.test(data[key]) == true) {
+                match = true;
+            }
+        }
+        return match;
+      }
+
+        var table = new Tabulator("#vhfUhfResults", {
+            data: dataVhfUhf,
+            layout: "fitColumns",
+            tooltips: true,
+            columns: [
+              {title: "Date", field: "date"},
+              {title: "Brand", field: "brand"},
+              {title: "Model", field: "model"},
+              {title: "2m", field: "twoMeter"},
+              {title: "70cm*", field: "seventyCentimeter"}
+            ]
+        });
+    </script>
+  </p>
+
+<!-- /build:content -->
