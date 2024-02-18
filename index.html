@@ -17,6 +17,24 @@
 	
 	<script src="/lib/mastodon-timeline.min.js"></script>
 	<link rel="stylesheet" href="/lib/mastodon-timeline.min.css" />
+    <script>
+        window.addEventListener("load", () => {
+            const myTimeline = new MastodonTimeline({
+                instanceUrl: "https://mastodon.radio",
+                timelineType: "profile",
+                userId: "109247503699835348",
+                profileName: "@Claus",
+                maxNbPostShow: "1",
+                hideUnlisted: true,
+                hideReblog: true,
+                hideReplies: true,
+                hidePreviewLink: true,
+                hideCounterBar: true,
+                btnSeeMore: "",
+                btnReload: ""
+            });
+        });
+    </script>
 
 
     <!-- Google tag (gtag.js) -->
@@ -107,12 +125,11 @@
         <div>Field Hell Club: FH6752</div>
       </div>
       <hr />
-	  <div class="mt-timeline">
-          <div id="mt-body" class="mt-body" role="feed">
-              <div class="loading-spinner"></div>
+        <div id="mt-container" class="mt-container" style="width: 500px; margin: auto;">
+          <div class="mt-body" role="feed">
+            <div class="mt-loading-spinner"></div>
           </div>
-      </div>
-
+        </div>
 
     </div>
   </body>
