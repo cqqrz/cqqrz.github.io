@@ -1,0 +1,86 @@
+<!-- build:title -->QSL Cards: Image to PDF<!-- /build:title -->
+<!-- build:head --><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><!-- /build:head -->
+<!-- build:content -->
+    <h3 class="status-completed">QSL Cards: Image to PDF</h3>
+    <p>
+      Create a PDF file with 4 QSL card images to print and cutout yourself.  
+    </p>
+    <ul>
+      <lh>Instructions:</lh>
+      <li>Create an image file of your QSL card.  The image must be in a 5.5 x 3.5 inch ratio.  A 300 dpi image is recommended which gives a dimention of 1650 x 1050 pixles.  The image can be a jpeg, or png.</li>
+	  <li>Print on a US letter sized paper.  Card stock is recommended.  The A4 paper size is not supported.
+      <li>Using a paper cutter, cut 3.5 inches from the top to get the first row of the QSL cards.  Cut again at 3.5 inches to get the second row of QSL cards.  Cut each row in half at 5.5 inches.
+    </ul>
+
+    <!-- Image upload input -->
+    <p>
+      <label for="imageInput"> QSL image file:</label>
+      <input type="file" id="imageInput" accept="image/*" />
+    </p>
+    <p>
+      <label for="printerMargin"> Printer margin:</label>
+      <input type="number" id="printerMargin" value="0" step="0.01" min="0" max="1"/>
+      <label for="printerMargin"> inches</label>
+      <br/><i>(for shitty printers that force margins on their user - Hello Canon!)</i>
+    </p>
+    <p>
+      <button id="generatePdf">Generate PDF</button>
+    </p>
+
+    <script>
+    // Wait for the DOM to be ready before attaching event listeners
+    document.getElementById('generatePdf').addEventListener('click', function () {
+      const inputFile = document.getElementById('imageInput');
+      if (inputFile.files.length === 0) {
+        alert("Please select an image first!");
+        return;
+      }
+
+      // Check that only one image is selected
+      if (inputFile.files.length !== 1) {
+        alert("Please select only one image!");
+        return;
+      }
+
+      const file = inputFile.files[0];
+
+      // Check if the selected file is an image
+      if (!file.type.startsWith('image/')) {
+        alert(`Not an image file!`);
+        return;
+      }
+
+      const reader = new FileReader();
+      
+      reader.onload = function (event) {
+        const img = new Image();
+        img.onload = function () {
+          // Check if the image dimensions match the required size
+          if (img.width / img.height !== 5.5 / 3.5) {
+            alert(`The image must have dimensions of 5.5 x 3.5 inches (e.g. 1650 x 1050 pixles at 300 dpi).`);
+            return;
+          }
+
+          const { jsPDF } = window.jspdf;
+          // Create PDF in landscape orientation and Letter size (8.5 x 11 inches)
+          const pdf = new jsPDF('landscape', 'in', 'letter'); 
+          
+          const imageWidth = 5.5 - printerMargin.valueAsNumber;
+          const imageHeight = 3.5 - printerMargin.valueAsNumber;
+
+          // Add the image to the PDF
+          pdf.addImage(img, 'JPEG', 0.0 + printerMargin.valueAsNumber, 0.0 + printerMargin.valueAsNumber, imageWidth, imageHeight); 
+          pdf.addImage(img, 'JPEG', 5.5 + printerMargin.valueAsNumber, 0.0 + printerMargin.valueAsNumber, imageWidth, imageHeight); 
+          pdf.addImage(img, 'JPEG', 0.0 + printerMargin.valueAsNumber, 3.5 + printerMargin.valueAsNumber, imageWidth, imageHeight); 
+          pdf.addImage(img, 'JPEG', 5.5 + printerMargin.valueAsNumber, 3.5 + printerMargin.valueAsNumber, imageWidth, imageHeight); 
+
+          // Save the PDF
+          pdf.save('qsl-cards.pdf');
+        }
+        img.src = event.target.result;
+      }
+      
+      reader.readAsDataURL(file);
+    });
+    </script>
+<!-- /build:content -->
