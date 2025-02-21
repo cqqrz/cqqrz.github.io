@@ -25,15 +25,6 @@ blockquote {
   border-left: 3px solid #ccc;
 }
 
-/* code block */
-pre code {
-  background-color: lavender;
-  border: 1px solid black;
-  display: block;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 #upper_left {
 	position: absolute;
 	top: 0; 
