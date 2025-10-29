@@ -1,0 +1,54 @@
+<!-- build:title -->Baofeng UV-82 Transmit Filter Fix<!-- /build:title -->
+<!-- build:content -->
+    <h3 class="status-active">Baofeng UV-82 Transmit Filter Fix</h3>
+    <p>
+      I have a collection of UV82 HTs that have spurrious emissions (see <a href="/projects/transmitter-testing/">Transmitter Testing</a>).  This is my attempt to fix the filter in these radios.
+    </p>
+    <p>
+      </i>Last updated October 28, 2025.</i>
+    <p>
+    <p>
+      <dt>Comparison of components between schemantic and the actual PCB</dt>
+      <dd>
+        <p>
+          I identified the relevant componenents and created these printed circuit board component layout mappings:
+          <ul>
+            <li><a href="UV82 PCB - back top with labels.jpg">Back top of PBC with components identified</a> (<a href="UV82 PCB - back top.jpg">same image without component labels</a>)</li>
+            <li><a href="UV82 PCB - back bottom with labels.jpg">Back bottom of PBC with components identified</a> (<a href="UV82 PCB - back bottom.jpg">same image without component labels</a>)</li>
+            <li><a href="UV82 PCB - front with labels.jpg">Front of PBC with components identified</a> (<a href="UV82 PCB - front.jpg">same image without component labels</a>)</li>
+          </ul>
+          This <a href="Schematics-2153200.pdf">schemantic</a> (original source <a href="https://fccid.io/ZP5BF-82">https://fccid.io/ZP5BF-82</a>) was used for this work.
+        </p>
+        <p>
+          In this process the following discrepancies where identified between the schemantic and the actual device:
+          <ul>
+            <li>The filter group consisting of components L16, D8, D7 and C33 is missing. (L16, D8, D7 are on the front.  C33 is on the back.)</li>
+            <li>The filter group consisting of components L26 and C59 is missing. Instead of the inductor a zero Ohm resistor/bridge is being used.  (L26 and C59 are on the back.)</li>
+            <li>C51 to ground is missing. (On the back.)</li>
+            <li>C46 which parallels L19 is missing. (On the back.)</li>
+            <li>C43 to ground is missing. (On the back.)</li>
+            <li>C18 to ground is missing. (On the back.)</li>
+            <li>C39 to ground is placed. (On the front.)</li>
+            <li>In the trace section of capacitor C171, C12, C10, C11, C9, C8 and C27 seem to be differently populated than indicated in the schemantic. (On the back.)</li>
+            <li>C38 is on the other side from R20 when compared to the schemantic. (On the front.)</li>
+          </ul>
+          <center><img src="Schematics-2153200 issue highlights.jpg" alt="Schemantics with issues highlighted" /></center>
+        </p>
+        <p>
+          When comparing this to the <a href="Int-Photos-2153195.pdf">internal photographs</a> from the FCC (original source <a href="https://fccid.io/ZP5BF-82">https://fccid.io/ZP5BF-82</a>) the following where noted:
+          <ul>
+            <li>The filter group consisting of components L16, D8, D7 and C33 is missing. (L16, D8, D7 are on the front.  C33 is on the back.) <br/> These are populated in the FCC photo.</li>
+            <li>The filter group consisting of components L26 and C59 is missing. Instead of the inductor a zero Ohm resistor/bridge is being used.  (L26 and C59 are on the back.) <br/> These are populated in the FCC photo.</li>
+            <li>C51 to ground is missing. (On the back.) <br/> This is populated in the FCC photo.</li>
+            <li>C46 which parallels L19 is missing. (On the back.) This is also NOT populated in the FCC photo.</li>
+            <li>C43 to ground is missing. (On the back.) <br/> This is populated in the FCC photo.</li>
+            <li>C18 to ground is missing. (On the back.) <br/> This is populated in the FCC photo.</li>
+            <li>C39 to ground is placed. (On the front.) <br/> This is NOT populated in the FCC photo.</li>
+            <li>In the trace section of capacitor C171, C12, C10, C11, C9, C8 and C27 seem to be differently populated than indicated in the schemantic. (On the back.) <br/> This is identical to the FCC photo.</li>
+            <li>C38 is on the other side from R20 when compared to the schemantic. <br/> This is the same in the FCC photo.</li>
+          </ul>
+          The UV-82L <a href="Internal-Photos-2806799.pdf">internal photographs</a> from the FCC (original source <a href="https://fccid.io/ZP5BF-UV82L">https://fccid.io/ZP5BF-UV82L</a>) have the same findings.
+        </p>
+      </dd>
+    </p>
+<!-- /build:content -->
