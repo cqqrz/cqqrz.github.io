@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[AE0S] Baofeng UV-82 Transmit Filter Fix</title>
+    <meta name="description" content="Offial page of the amateur radio (ham) station AE0S featuring experiments, projects, publications, blog and station information">
+    <meta name="google-site-verification" content="dv5RKiVqsej9VWfRGw1rU6y43fp3Spg9ULgLUUZQLtQ" />
+    <meta name="msvalidate.01" content="36B677FC5749023331AF1AAD8126392C" />
+    <meta name="yandex-verification" content="5e1f5584e6f19e04" />
+    <script src="/lib/jquery-3.7.1.min.js" type="text/javascript"></script>
+    <script src="/menu/script.js" type="text/javascript"></script>
+    <script src="/script.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/menu/style.css" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Allerta" rel="stylesheet"> 
+	<!-- build:head -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSTBPZ3MJP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TSTBPZ3MJP');
+    </script>
+  </head>
+
+  <body>
+    <div id="upper_left">
+      <div class="call_sign">AE0S</div>
+      <div class="amateur_station">Amateur Radio Station</div>
+    </div>
+    
+    <div id="upper_right">
+      <div class="call_sign">AE0S</div>
+      <div class="amateur_station">Amateur Radio Station</div>
+    </div>
+    
+    <div class="menu-container">
+      <div class="menu-image fade" data-menu="home">
+        <img src="/menu/home.png">
+      </div>
+      <div class="menu-image fade" data-menu="qsl" style="display:none">
+        <img src="/menu/qsl.png">
+      </div>
+      <div class="menu-image fade" data-menu="antennas" style="display:none">
+        <img src="/menu/antennas.png">
+      </div>
+      <div class="menu-image fade" data-menu="station" style="display:none">
+        <img src="/menu/station.png">
+      </div>
+      <div class="menu-image fade" data-menu="projects" style="display:none">
+        <img src="/menu/projects.png">
+      </div>
+      <div class="menu-image fade" data-menu="publications" style="display:none">
+        <img src="/menu/publications.png">
+      </div>
+      <div class="menu-image fade" data-menu="journal" style="display:none">
+        <img src="/menu/journal.png">
+      </div>
+      <br />
+      <div style="text-align:center">
+        <a class="menu-button" data-menu="home" href="/">Home</a>
+        <a class="menu-button" data-menu="qsl" href="/qsl/">QSL</a>
+        <a class="menu-button" data-menu="antennas" href="/antennas/">Antennas</a>
+        <a class="menu-button" data-menu="station" href="/station/">Station</a>
+        <a class="menu-button" data-menu="projects" href="/projects/">Projects</a>
+        <a class="menu-button" data-menu="publications" href="/publications/">Publication</a>
+        <a class="menu-button" data-menu="journal" href="/journal/">Journal</a>
+      </div>
+    </div>
+
+    <hr />
+    <div id="content-container">
+    
+    <h3 class="status-active">Baofeng UV-82 Transmit Filter Fix</h3>
+    <p>
+      I have a collection of UV82 HTs that have spurrious emissions (see <a href="/projects/transmitter-testing/">Transmitter Testing</a>).  This is my attempt to fix the filter in these radios.
+    </p>
+    <p>
+      </i>Last updated October 28, 2025.</i>
+    <p>
+    <p>
+      <dt>Comparison of components between schemantic and the actual PCB</dt>
+      <dd>
+        <p>
+          I identified the relevant componenents and created these printed circuit board component layout mappings:
+          <ul>
+            <li><a href="UV82 PCB - back top with labels.jpg">Back top of PBC with components identified</a> (<a href="UV82 PCB - back top.jpg">same image without component labels</a>)</li>
+            <li><a href="UV82 PCB - back bottom with labels.jpg">Back bottom of PBC with components identified</a> (<a href="UV82 PCB - back bottom.jpg">same image without component labels</a>)</li>
+            <li><a href="UV82 PCB - front with labels.jpg">Front of PBC with components identified</a> (<a href="UV82 PCB - front.jpg">same image without component labels</a>)</li>
+          </ul>
+          This <a href="Schematics-2153200.pdf">schemantic</a> (original source <a href="https://fccid.io/ZP5BF-82">https://fccid.io/ZP5BF-82</a>) was used for this work.
+        </p>
+        <p>
+          In this process the following discrepancies where identified between the schemantic and the actual device:
+          <ul>
+            <li>The filter group consisting of components L16, D8, D7 and C33 is missing. (L16, D8, D7 are on the front.  C33 is on the back.)</li>
+            <li>The filter group consisting of components L26 and C59 is missing. Instead of the inductor a zero Ohm resistor/bridge is being used.  (L26 and C59 are on the back.)</li>
+            <li>C51 to ground is missing. (On the back.)</li>
+            <li>C46 which parallels L19 is missing. (On the back.)</li>
+            <li>C43 to ground is missing. (On the back.)</li>
+            <li>C18 to ground is missing. (On the back.)</li>
+            <li>C39 to ground is placed. (On the front.)</li>
+            <li>In the trace section of capacitor C171, C12, C10, C11, C9, C8 and C27 seem to be differently populated than indicated in the schemantic. (On the back.)</li>
+            <li>C38 is on the other side from R20 when compared to the schemantic. (On the front.)</li>
+          </ul>
+          <center><img src="Schematics-2153200 issue highlights.jpg" alt="Schemantics with issues highlighted" /></center>
+        </p>
+        <p>
+          When comparing this to the <a href="Int-Photos-2153195.pdf">internal photographs</a> from the FCC (original source <a href="https://fccid.io/ZP5BF-82">https://fccid.io/ZP5BF-82</a>) the following where noted:
+          <ul>
+            <li>The filter group consisting of components L16, D8, D7 and C33 is missing. (L16, D8, D7 are on the front.  C33 is on the back.) <br/> These are populated in the FCC photo.</li>
+            <li>The filter group consisting of components L26 and C59 is missing. Instead of the inductor a zero Ohm resistor/bridge is being used.  (L26 and C59 are on the back.) <br/> These are populated in the FCC photo.</li>
+            <li>C51 to ground is missing. (On the back.) <br/> This is populated in the FCC photo.</li>
+            <li>C46 which parallels L19 is missing. (On the back.) This is also NOT populated in the FCC photo.</li>
+            <li>C43 to ground is missing. (On the back.) <br/> This is populated in the FCC photo.</li>
+            <li>C18 to ground is missing. (On the back.) <br/> This is populated in the FCC photo.</li>
+            <li>C39 to ground is placed. (On the front.) <br/> This is NOT populated in the FCC photo.</li>
+            <li>In the trace section of capacitor C171, C12, C10, C11, C9, C8 and C27 seem to be differently populated than indicated in the schemantic. (On the back.) <br/> This is identical to the FCC photo.</li>
+            <li>C38 is on the other side from R20 when compared to the schemantic. <br/> This is the same in the FCC photo.</li>
+          </ul>
+          The UV-82L <a href="Internal-Photos-2806799.pdf">internal photographs</a> from the FCC (original source <a href="https://fccid.io/ZP5BF-UV82L">https://fccid.io/ZP5BF-UV82L</a>) have the same findings.
+        </p>
+      </dd>
+    </p>
+
+    </div>
+  </body>
+</html>
