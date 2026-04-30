@@ -100,11 +100,11 @@
       <h4>Parts List</h3>
       <ul>
 	    <li>(1) HC-05 Bluetooth Module with base board</li>
-		<li>(1) 4 Channel bi-directonal locic level converter for 5V to 3.3V</li>
+		<li>(1) 4 Channel bi-directional logic level converter for 5V to 3.3V</li>
         <li>(1) Voltage regulator 5V (LP2950-50LPRE3)</li>
         <li>(1) Voltage regulator 3.3V (LP2950-33LPRE3)</li>
-		<li>(2) 2.2uF elecrolytic capacitor</li>
-		<li>(1) 3.3uF elecrolytic capacitor</li>
+		<li>(2) 2.2uF electrolytic capacitor</li>
+		<li>(1) 3.3uF electrolytic capacitor</li>
 		<li>(1) 6 pin long legged female header</li>
 		<li>(1) 8 pin mini DIN male connector
 		<li>4-wire cable (for mini Din connector)
@@ -112,7 +112,7 @@
       </ul>
 	  <h4>Circuit Diagram and Prefboard (PCB) Layout</h4>
 	  <p>
-	    <a href="Yaesu FT-8x7 Bloothooth Cat Interface Circuit Diagram and Board.pdf">Yaesu FT-8x7 Bloothooth Cat Interface Circuit Diagram and Board.pdf</a>
+	    <a href="Yaesu FT-8x7 Bloothooth Cat Interface Circuit Diagram and Board.pdf">Yaesu FT-8x7 Bluetooth Cat Interface Circuit Diagram and Board.pdf</a>
 	  </p>
       <h4>Other Resources:</h4>
 	  <ul>
@@ -123,9 +123,9 @@
       </ul>
 	  <h4>Interesting Notes</h4>
 	  <ul>
-	    <li>The Yaesu uses 5V and the HC-05 uses 3.3V for the serial communication. While the Yaesu would fry the HC-05 by applying to high of a voltage to the HC-05's RXD pin, the HC-05's TXD pin should be able to be directly connected to Yaesu's RXD pin as the 3.3V should be enough to cause a locical one.
-	    <li>The Yaesu FT-857 supplies 5V on the RX pin eventhough the radio is turned off.</li>
-		<li>From the BlueCAT FAQ it sounds like they are using the RX pin of the Yaesu to power the bluetoon interface, which is interesting as this eliminates the need for one voltage regulator.  Although I'm not sure how that works since it's a signal port and therefore the voltage difference won't alway be 5v.</li>
+	    <li>The Yaesu uses 5V and the HC-05 uses 3.3V for the serial communication. While the Yaesu would fry the HC-05 by applying to high of a voltage to the HC-05's RXD pin, the HC-05's TXD pin should be able to be directly connected to Yaesu's RXD pin as the 3.3V should be enough to cause a logical one.
+	    <li>The Yaesu FT-857 supplies 5V on the RX pin even though the radio is turned off.</li>
+		<li>From the BlueCAT FAQ it sounds like they are using the RX pin of the Yaesu to power the bluetooth interface, which is interesting as this eliminates the need for one voltage regulator.  Although I'm not sure how that works since it's a signal port and therefore the voltage difference won't alway be 5v.</li>
 	  </ul>
 	</p>
 
