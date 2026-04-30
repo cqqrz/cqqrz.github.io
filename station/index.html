@@ -82,6 +82,7 @@
           <li><a href="#log4om">Log4OM Logging Software</a></li>
           <li><a href="#wsjtx">WSJT-X</a></li>
           <li><a href="#fldigi">Fldigi</a></li>
+          <li><a href="#mmsstv">MMSSTV</a></li>
           <li><a href="#js8call">JS8Call</a></li>
           <li><a href="#n3fjp">N3FJP Logger</a></li>
           <li><a href="#icom_clock_omni_rig">IcomClockOmniRig</a></li>
@@ -90,8 +91,6 @@
       <li><a href="#hf_portable_station">HF Portable Station</a></li>
         <ul>
           <li><a href="#portable_omnirig">OmniRig Rig Control</a></li>
-          <li><a href="#portable_log4om">Log4OM Logging Software</a></li>
-          <li><a href="#portable_wsjtx">WSJT-X</a></li>
         </ul>
       <li><a href="#mobile_station">HF/VHF/UHF Mobile Station</a></li>
       <li><a href="#digital_mode_software">Software for Digital Modes</a></li>
@@ -99,7 +98,7 @@
     <h3 id="hf_home_station"> HF Home Station</h3>
     <p>My home station is the Icom IC-7300.  The transceiver has no modification.  Besides the common clock battery issue (aka loosing of time) the transceiver is great. 
     </p>
-    <p>To deal with clock issue I've greated the <a href="https://github.com/cniesen/IcomClockOmniRig">IcomClockOmniRig</a> Windows executable to set the Icom IC-7300 clock via OmniRig.  
+    <p>To deal with clock issue I've created the <a href="https://github.com/cniesen/IcomClockOmniRig">IcomClockOmniRig</a> Windows executable to set the Icom IC-7300 clock via OmniRig.  
        That works out quite well and I can set the IC-7300's clock to UTC as well.  Check IcomClockOmniRig program out if you have an IC-7300.  For non-windows computers you may want to 
        check out the <a href="https://github.com/cniesen/IC-7300-time-sync">IC-7300-time-sync</a> Python script.  The only drawback here is that the COM port can't be shared like with OmniRig.
     </p>
@@ -111,9 +110,9 @@
     <ul>
       <li> Set -> Connections -> CI-V -> CI-V Baud Rate: 19200 (fastest speed)</li>
       <li> Set -> Connections -> CI-V -> CI-V Address: 94h (default)</li>
-      <li> Set -> Connections -> CI-V -> CI-V Transceive: OFF)</li>
-      <li> Set -> Connections -> CI-V -> CI-V Output (for ANT): OFF)</li>
-      <li> Set -> Connections -> CI-V -> CI-V USB Port: Unlink from [REMOTE] (This separates the CI-V and USB ports from each other so they can utelize different speeds.)</li>      
+      <li> Set -> Connections -> CI-V -> CI-V Transceive: OFF</li>
+      <li> Set -> Connections -> CI-V -> CI-V Output (for ANT): OFF</li>
+      <li> Set -> Connections -> CI-V -> CI-V USB Port: Unlink from [REMOTE] (This separates the CI-V and USB ports from each other so they can utilize different speeds.)</li>      
       <li> Set -> Connections -> CI-V -> CI-V USB Baud Rate: 115200 (fastest speed)</li>
       <li> Set -> Connections -> CI-V -> CI-V USB Echo Back: ON</li>
     </ul>
@@ -121,20 +120,20 @@
     <dl id="omnirig">
       <dt>OmniRig Rig Control</dt>
       <dd>
-        <p>OmniRig allows multiple programs to communicate via a single COM port with the transceiver.  The awsomeness of this is that you don't need to shut down an app while using another
-        app concurrently.  <a href="http://www.dxatlas.com/omnirig/">OmniRig</a> is free and the source code is availiable.  The code is very mature and works great.  The only downside is 
+        <p>OmniRig allows multiple programs to communicate via a single COM port with the transceiver.  The awesomeness of this is that you don't need to shut down an app while using another
+        app concurrently.  <a href="http://www.dxatlas.com/omnirig/">OmniRig</a> is free and the source code is available.  The code is very mature and works great.  The only downside is 
         that it works only with Windows due to the technology used.<p>
         <p>My OmniRig configuration is as follows:</p>
         <ul>
-          <li>Rig type: IC-7300</li>
-          <li>Port: COM 3 (Prolific USB-to-Serial Comm Port)</li>
+          <li>Rig type: IC-7300-DATA</li>
+          <li>Port: COM 4 (Prolific USB-to-Serial Comm Port)</li>
           <li>Baud Rate: 19200</li>
           <li>Data bits: 8</li>
           <li>Parity: None</li>
-          <li>Stop bits: 1</li>
+          <li>Stop bits: 2</li>
           <li>RTS: Low</li>
           <li>DTR: Low</li>
-          <li>Poll int., ms: 300</li>
+          <li>Poll int., ms: 500</li>
           <li>Timeout, ms: 4000</li>
         </ul>
       </dd>
@@ -142,7 +141,7 @@
     <dl id="log4om">
       <dt>Log4OM Logging Software</dt>
       <dd>
-        <p>For logging I primarely use <a href="https://www.log4om.com/">Log4OM</a>, a free but not open source Windows logging software that utelizes OmniRig for rig control.</p>
+        <p>For logging I primarily use <a href="https://www.log4om.com/">Log4OM</a>, a free but not open source Windows logging software that utilizes OmniRig for rig control.</p>
         <p>I use OmniRig for cat control with the following settings:</p>
         <ul>
           <li>CAT Engine: Omnirig</li>
@@ -159,7 +158,7 @@
           <li>Internal relay to UDP inbound service - Service name: JT_MESSAGE</li>
           <li>UDP proxy parameters: All are checked (SAVE_NEW_QSO, USE_EXTERNAL_DATA, UPLOAD_QSO, UPDATE_CQ_ITUZONE)</li>
         </ul> 
-        <p>Similarely to allow my <a href="https://github.com/cniesen/NetLoggerElf">NetLoggerElf software</a> to add QSOs I added the following settings under "Software Integration" -> "Connections" -> "UDP" -> "UDP INBOUND":  
+        <p>Similarly to allow my <a href="https://github.com/cniesen/NetLoggerElf">NetLoggerElf software</a> to add QSOs I added the following settings under "Software Integration" -> "Connections" -> "UDP" -> "UDP INBOUND":  
         <ul>
           <li>Connection name: NET LOGGER ELF</li>
           <li>Port: 8899</li>
@@ -171,22 +170,14 @@
     <dl id="wsjtx">
       <dt>WSJT-X</dt>
       <dd>
-        <p>An introduction to WSJT-X isn't needed with FT8 being so popular.  The <a href="https://physics.princeton.edu/pulsar/k1jt/wsjtx.html">WSJT-X software</a> is free and 
+        <p>An introduction to WSJT-X isn't needed with FT8 being so popular.  The <a href="https://wsjt.sourceforge.io/wsjtx.html">WSJT-X software</a> is free and 
         open source.  Occasionally I do run other modes like FT4 or JT65.</p>
         <p>My WSJT-X rig control settings are:</p>
         <ul>
-          <li>Rig: IC-7300</li>
-          <li>Poll Interval: 1s</li>
-          <li>Serial Port: COM4 (Silicon Labs CP210x USB to UART Bridge)</li>
-          <li>Baud Rate: 115200</li>
-          <li>Data Bits: Eight</li>
-          <li>Stop Bits: Two</li>
-          <li>Handshake: None</li>
-          <li>DTR: Low</li>
-          <li>RTS: Low</li>
+          <li>Rig: OmniRig Rig 1</li>
           <li>PTT Method: Cat</li>
           <li>Mode: Data/Pkt</li>
-          <li>Split Operation: Rig</li>
+          <li>Split Operation: Fake It</li>
         </ul>
         <p>I use the UDP Server for automated loggin to Log4OM.  The required settings on the WSJT-X side are under the "Reporting" -> "UDP Server":</p>
         <ul>
@@ -203,17 +194,17 @@
     <dl id="fldigi">
       <dt>Fldigi</dt>
       <dd>
-        <p>Fldigi is the allround tool for digital communication. The <a href="http://www.w1hkj.com/">Fldigi software</a> is free and open source.  Some of my used modes are PSK, RTTY and Hell.</p>
+        <p>Fldigi is the all-round tool for digital communication. The <a href="http://www.w1hkj.org/">Fldigi software</a> is free and open source.  Some of my used modes are PSK, RTTY and Hell.</p>
         <p>I use RigCat with the following settings:</p>
         <ul>
           <li>Rig description file: IC-7300.xml</li>
-          <li>Device: COM4</li>
+          <li>Device: COM 5 (Silicon Labs CP210x USB to UART Bridge)</li>
           <li>Retries: 5</li>
           <li>Retry interval (ms): 50</li>
           <li>Write delay (ms): 0</li>
-          <li>Init delay (ms)</li>
+          <li>Init delay (ms): 0</li>
           <li>Baud rate: 115200</li>
-          <li>Stopbits: 1</li>
+          <li>Stopbits: 2</li>
           <li>Commands are echoed: checked</li>
           <li>CAT command for PTT: checked</li>
           <li>Toggle RTS for PTT: unchecked</li>
@@ -226,21 +217,46 @@
         </ul>
       </dd>
     </dl>
+    <dl id="mmsstv">
+      <dt>MMSSTV</dt>
+      <dd>
+        <p>Even though <a href="https://radiogalena.es/yoniq/">YONIQ</a> has Omnirig support, I prefer <a href="https://hamsoft.ca/pages/mmsstv.php">MMSTV</a> as it's more stable for me.  This program is an old and mature program for SSTV.</p>
+        <p>My MMSTV rig control settings are:</p>
+        <ul>
+          <li>Port: COM 5 (Silicon Labs CP210x USB to UART Bridge)</li>
+          <li>Baud Rate: 115200</li>
+          <li>Char. wait: 0ms</li>
+          <li>Data length: 8</li>
+          <li>Stop Bits: 2</li>
+          <li>Parity: None</li>
+          <li>XON/XOFF: unchecked</li>
+          <li>CTS: unchecked</li>
+          <li>PTT: unchecked</li>
+          <li>Init: (blank)</li>
+          <li>xx: 94 (ICOM IC-7300 CI-V address)</li>
+          <li>Rx: \$FEFExxE01C0000FD</li>
+          <li>Tx: \$FEFExxE01C0001FD\w10</li>
+          <li>VFO polling: ICOM CI-V</li>
+          <li>Polling interval: 1s</li>
+          <li>(bottom drop-down): Icom  xx=addr 01-7F</bottom></li>
+        </ul>
+      </dd>
+    </dl>
     <dl id="js8call">
       <dt>JS8Call</dt>
       <dd>
-        <p>JS8Call took FT8 one step further and made it into a mode that can be used for real communicaton.  The <a href="http://js8call.com/">JS8Call</a> is free and open source.  The project has 
+        <p>JS8Call took FT8 one step further and made it into a mode that can be used for real communication.  The <a href="http://js8call.com/">JS8Call</a> is free and open source.  The project has 
         received the <a href="https://arsaward.com/award-recipients.html">2021 Amateur Radio Software Award</a>
         <p>My JS8Call rig control settings are:</p>
         <ul>
           <li>Rig: IC-7300</li>
-          <li>Serial Port: COM4</li>
+          <li>Serial Port: COM 5 (Silicon Labs CP210x USB to UART Bridge)</li>
           <li>Baud Rate: 115200</li>
-          <li>Data Bits: Default</li>
-          <li>Stop Bits: Default</li>
+          <li>Data Bits: 8</li>
+          <li>Stop Bits: 2</li>
           <li>Handshake: Default</li>
-          <li>DTR: <blank></li>
-          <li>RTS: <blank></li>
+          <li>DTR: (blank)</li>
+          <li>RTS: (blank)</li>
           <li>PTT Method: Cat</li>
           <li>Mode: Data/Pkt</li>
           <li>Split Operation: Fake It</li>
@@ -256,11 +272,11 @@
         <p>My rig settings are:</p>
         <ul>
           <li>Select Rig: Icom</li>
-          <li>Com Port: COM4</li>
+          <li>Com Port: COM 5 (Silicon Labs CP210x USB to UART Bridge)</li>
           <li>Baud Rate: Other 115200</li>
           <li>Parity: None</li>
           <li>Data Bits: 8</li>
-          <li>Stop Bits: 1</li>
+          <li>Stop Bits: 2</li>
           <li>Connection Power: None</li>
           <li>Radio Polling Rate: 500 ms</li>
           <li>Mede Determined By: Rig</li>
@@ -274,7 +290,7 @@
       <dd>
         <p>As mentioned above, I'm using the IcomClockOmniRig to set the time to UTC on the IC-7300.  <a href="https://github.com/cniesen/IcomClockOmniRig">IcomClockOmniRig</a> is free, open 
         source and has been rock solid for me.  Of course I'm the author of the program.  The following command runs whenever I start up Log4OM but I also have the same
-        command availiable as a shortcut in case I want to execute it some other time:</p>
+        command available as a shortcut in case I want to execute it some other time:</p>
         <code>IcomClockOmniRig.exe -u</code>
       </dd>
     </dl>
@@ -283,7 +299,7 @@
       <dd>
         <p>For logging and participating in the 3905 Century Club nets and occasionally the OMISS nets I use the free but not open source <a href="https://www.netlogger.org/">Netlogger 
         software</a> I wrote the <a href="https://github.com/cniesen/NetLoggerElf">NetLogger Elf software</a> to print QSL cards or QSO labels for commercially made QSL cards.  It also insert logs into Log4OM.  This software is free and open source, but is probably a bit more involved with the setup.</p>
-        <p>In the past I was printing the QSL cards with it but now I'm printing labels instead so I can use the <a href="/qsl"> cool QSL cards that my daugher created</a>.  My NetLogger Elf configuration (config.yml) for this is:</p>
+        <p>In the past I was printing the QSL cards with it but now I'm printing labels instead so I can use the <a href="/qsl"> cool QSL cards that my daughter created</a>.  My NetLogger Elf configuration (config.yml) for this is:</p>
         <div class="box">
           <pre><code>
 qslCard:
@@ -313,13 +329,13 @@ adif:
     </dl>
     
     <h3 id="hf_portable_station">HF Station Portable Station</h3>
-    <p>I'm using a Yeasu FT-857d with an LDG YT100 tuner for portable operations like POTA activations. I primarely operate voice and log directly on my phone.  For logging I found the free and open source app <a href="https://polo.ham2k.com/">Ham2K Portable Logger (aka PoLo)</a> quite great. Even with the small screen of my android phone the logging is no problem.</p>
-    <p>Occasionally I use the Dell Latitude E6540 laptop with the Yeasu FT-857d in the field for digital modes. With the Yeasu FT-857d I only have one rig control connection.
+    <p>For portable operations like POTA activations, I'm either using a Yeasu FT-857d with or without an LDG YT100 tuner depending on the antenna or a QMX 60/40/30/20/17/15. when for portable operations like POTA activations. I primarily operate voice and log directly on my phone.  For logging I found the free and open source app <a href="https://polo.ham2k.com/">Ham2K Portable Logger (aka PoLo)</a> quite great. Even with the small screen of my android phone the logging is no problem.</p>
+    <p>Very occasionally I use the Dell Latitude E6540 laptop with the Yeasu FT-857d in the field for digital modes. With the Yeasu FT-857d I only have one rig control connection.
     
     <dl id="portable_omnirig">
       <dt>OmniRig Rig Control</dt>
       <dd>
-        <p>Since the computer is used and configured for the home station already, I continue to use OmniRig with Log4OM eventhough no other software is utelizing OmniRig.<p>
+        <p>Since the computer is used and configured for the home station already, I continue to use OmniRig with Log4OM even though no other software is utelizing OmniRig.<p>
         <p>My OmniRig configuration is as follows:</p>
         <ul>
           <li>Rig type: FT-857</li>
@@ -335,50 +351,12 @@ adif:
         </ul>
       </dd>
     </dl>
-    <dl id="portable_log4om">
-      <dt>Log4OM Logging Software</dt>
-      <dd>
-        <p>Settings are the same as for the home station (i.e. no changes).</p>
-      </dd>
-    </dl>
-    <dl id="portable_wsjtx">
-      <dt>WSJT-X</dt>
-      <dd>
-        <p>An introduction to WSJT-X isn't needed with FT8 being so popular.  The <a href="https://physics.princeton.edu/pulsar/k1jt/wsjtx.html">WSJT-X software</a> is free and 
-        open source.  Occasionally I do run other modes like FT4 or JT65.</p>
-        <p>My WSJT-X rig control settings are:</p>
-        <ul>
-          <li>Rig: Yaesu FT-857</li>
-          <li>Poll Interval: 1s</li>
-          <li>Serial Port: COM6</li>
-          <li>Baud Rate: 4800</li>
-          <li>Data Bits: Eight</li>
-          <li>Stop Bits: Two</li>
-          <li>Handshake: None</li>
-          <li>DTR: Low</li>
-          <li>RTS: Low</li>
-          <li>PTT Method: Cat</li>
-          <li>Mode: Data/Pkt</li>
-          <li>Split Operation: Rig</li>
-        </ul>
-        <p>Again, I use the UDP Server for automated loggin to Log4OM.  WSJT-X needs to be started before Log4OM so that OmniRig doesn't claim the COM port. The required settings on the WSJT-X side are under the "Reporting" -> "UDP Server":</p>
-        <ul>
-          <li>UDP Server: 127.0.0.1</li>
-          <li>UDP Server port number: 2237</li>
-          <li>Outgoing interfaces: loopback_0</li>
-          <li>Multicast TTL: 1</li>
-          <li>Accept UDP request: checked</li>
-          <li>Notify on accepted UDP request: checked</li>
-          <li>Accepted UDP request restores window: checked</li>          
-        </ul>
-      </dd>
-    </dl>
 
     <h3 id="mobile_station">HF/VHF/UHF Mobile Station</h3>
     <p>Coming soon.</p>
 
     <h3 id="digital_mode_software">Software for Digital Modes</h3>
-    <p>Here I list of software I use for the various digital modes. Note that I primarely run Windows and Android OS.</p>
+    <p>Here I list of software I use for the various digital modes. Note that I primarily run Windows and Android OS.</p>
     <p>
       <label for="fSearch">Search</label>
       <input type="text" id="fSearch" name="fSearch">
@@ -413,6 +391,14 @@ adif:
           software_url: 'https://wsjt.sourceforge.io/wsjtx.html',
           software_source: 'https://wsjt.sourceforge.io/wsjtx.html',
         },{
+          mode: 'Hellschreiber',
+          os: 'Windows',
+          popularity: 'Niche',
+          software_title: 'Fldigi',
+          software_license: 'Free & open source',
+          software_url: 'http://www.w1hkj.org/',
+          software_source: 'https://sourceforge.net/p/fldigi/fldigi/ci/master/tree/',
+        },{
           mode: 'JS8',
           os: 'Windows',
           popularity: 'Popular',
@@ -426,7 +412,7 @@ adif:
           popularity: 'Popular',
           software_title: 'fldigi',
           software_license: 'Free & open source',
-          software_url: 'http://www.w1hkj.com/',
+          software_url: 'http://www.w1hkj.org/',
           software_source: 'https://sourceforge.net/p/fldigi/fldigi/ci/master/tree/',
         },{
           mode: 'RTTY',
@@ -434,7 +420,7 @@ adif:
           popularity: 'Popular',
           software_title: 'fldigi',
           software_license: 'Free & open source',
-          software_url: 'http://www.w1hkj.com/',
+          software_url: 'http://www.w1hkj.org/',
           software_source: 'https://sourceforge.net/p/fldigi/fldigi/ci/master/tree/',
         },{
           mode: 'SSTV',
@@ -459,7 +445,7 @@ adif:
           software_title: 'SSTV Encoder',
           software_license: 'Free & open source',
           software_url: 'https://play.google.com/store/apps/details?id=om.sstvencoder',
-          sofware_source: 'https://github.com/olgamiller/SSTVEncoder2',
+          software_source: 'https://github.com/olgamiller/SSTVEncoder2',
         }];
 
       const input = document.getElementById("fSearch");
