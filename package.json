@@ -30,11 +30,11 @@
   },
   "homepage": "https://cqqrz.github.io/",
   "devDependencies": {
-    "concurrently": "^9.1.2",
-    "fs-extra": "^11.3.0",
+    "concurrently": "^10.0.4",
+    "fs-extra": "^11.4.0",
     "gh-pages": "^6.3.0",
     "klaw": "^4.1.0",
     "npm-watch": "^0.13.0",
-    "serve": "^14.2.4"
+    "serve": "^14.2.6"
   }
 }
