@@ -1,0 +1,57 @@
+/* Style for zoomable thumbnails */
+.image-zoom {
+  transition: transform 0.2s ease;
+}
+
+img .image-zoom {
+  cursor: zoom-in;
+}
+
+a .image-zoom {
+  cursor: pointer; 
+}
+
+.image-zoom:hover {
+  transform: scale(1.02); /* Slight hover effect */
+}
+
+/* Faded background overlay with smooth transition */
+.image-modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+  
+  /* Hidden by default with smooth opacity & visibility fade */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Centered full-size image with a slight scale pop-in */
+.image-modal img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+/* Active state fades it in */
+.image-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Zooms the image to full size when active */
+.image-modal.active img {
+  transform: scale(1);
+}

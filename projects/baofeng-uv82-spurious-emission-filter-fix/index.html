@@ -13,8 +13,13 @@
     <script src="/script.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="/menu/style.css" />
     <link rel="stylesheet" type="text/css" href="/style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Allerta" rel="stylesheet"> 
-	<!-- build:head -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+	
+	<script src="/lib/image-zoom/image-zoom.js" defer></script>
+	<link rel="stylesheet" href="/lib/image-zoom/image-zoom.css" />
+
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSTBPZ3MJP"></script>
@@ -75,7 +80,7 @@
     <hr />
     <div id="content-container">
     
-    <h3 class="status-active">Baofeng UV-82 Transmit Filter Fix</h3>
+    <h1 class="status-active">Baofeng UV-82 Transmit Filter Fix</h1>
     <p>
       I have a collection of UV82 HTs that have spurious emissions (see <a href="/projects/transmitter-testing/">Transmitter Testing</a>).  This is my attempt to fix the filter in these radios.
     </p>
@@ -107,7 +112,7 @@
             <li>In the trace section of capacitor C171, C12, C10, C11, C9, C8 and C27 seem to be differently populated than indicated in the schematic. (On the back.)</li>
             <li>C38 is on the other side from R20 when compared to the schematic. (On the front.)</li>
           </ul>
-          <center><img src="Schematics-2153200 issue highlights.jpg" alt="Schemantics with issues highlighted" /></center>
+          <center><img src="Schematics-2153200 issue highlights.jpg" data-fullsrc="Schematics-2153200 issue highlights.jpg" alt="Schematics with issues highlighted" class="image-zoom"/></center>
         </p>
         <p>
           When comparing this to the <a href="Int-Photos-2153195.pdf">internal photographs</a> from the FCC (original source <a href="https://fccid.io/ZP5BF-82">https://fccid.io/ZP5BF-82</a>) the following where noted:
@@ -126,6 +131,10 @@
         </p>
       </dd>
     </p>
+
+    <div id="image-modal" class="image-modal">
+      <img id="modal-img" src="" alt="Expanded view" />
+    </div>    
 
     </div>
   </body>

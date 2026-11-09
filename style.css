@@ -50,16 +50,18 @@ pre code {
 
 .call_sign {
     font-size: 72px;
-    font-family: 'Allerta', sans-serif;
+    font-family: 'Atkinson Hyperlegible Next', sans-serif;
     text-shadow: 4px 4px 4px #aaa;  
     text-align: center;
+    font-weight: 500;
 }
 
 .amateur_station {
     font-size: 20px;
-    font-family: 'Allerta', sans-serif;
+    font-family: 'Atkinson Hyperlegible Next', sans-serif;
     color: #6699cc;
     text-align: center;
+    font-weight: 500;
 }
 
 .memberships {
@@ -97,16 +99,36 @@ pre code {
 }
 
 #content-container {
-  margin:40px;
+    max-width: 1200px;
+    margin: 40px auto; 
+    padding: 0 40px;
+    text-align: justify;
 }
 
 .inline {
   display: inline;
 }
 
-h3 {
-  font-size: xx-large;
+.indent-section {
+    margin-left: 30px;
+}
+
+@media screen and (max-width: 700px) {
+    .indent-section {
+        margin-left: 0;
+    }
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
   font-style: italic;
+  color: #6699cc;
+  text-shadow: 4px 4px 4px #aaa;  
+}
+
+h2 {
+  font-size: 1.5rem;
   color: #6699cc;
 }
 
@@ -116,6 +138,7 @@ dt {
 }
 
 ol li:before,
+.deemphasize,
 dt .deemphasize {
   color: #888888;
 }
@@ -148,6 +171,7 @@ div.center {
   display: flex;
   align-items: center;
   gap: 8px;
+  font-size: 1.5rem;
 }
 
 .copy-link-btn {
@@ -209,4 +233,13 @@ div.center {
   margin-left: 5px;
   padding: 2px 4px;
   font-size: 12px;
+}
+
+h2.status-not-started,
+h2.status-on-hold,
+h2.status-active,
+h2.status-abandoned,
+h2.status-completed {
+  font-size: 1.5rem;
+  font-weight: normal;
 }

@@ -13,8 +13,13 @@
     <script src="/script.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="/menu/style.css" />
     <link rel="stylesheet" type="text/css" href="/style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Allerta" rel="stylesheet"> 
-	<!-- build:head -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+	
+	<script src="/lib/image-zoom/image-zoom.js" defer></script>
+	<link rel="stylesheet" href="/lib/image-zoom/image-zoom.css" />
+
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSTBPZ3MJP"></script>
@@ -75,8 +80,9 @@
     <hr />
     <div id="content-container">
     
+    <h1>Station</h1>
     <ul>
-      <li><a href="#hf_home_station">HF Home Station</a></li>
+      <li><a href="#hf_home_station">HF Home Station</a>
         <ul>
           <li><a href="#omnirig">OmniRig Rig Control</a></li>
           <li><a href="#log4om">Log4OM Logging Software</a></li>
@@ -87,42 +93,45 @@
           <li><a href="#n3fjp">N3FJP Logger</a></li>
           <li><a href="#icom_clock_omni_rig">IcomClockOmniRig</a></li>
           <li><a href="#netlogger_elf">Netlogger Elf</a></li>
-        </ul>
-      <li><a href="#hf_portable_station">HF Portable Station</a></li>
+        </ul></li>
+      <li><a href="#hf_portable_station">HF Portable Station</a>
         <ul>
           <li><a href="#portable_omnirig">OmniRig Rig Control</a></li>
-        </ul>
+        </ul></li>
       <li><a href="#mobile_station">HF/VHF/UHF Mobile Station</a></li>
       <li><a href="#digital_mode_software">Software for Digital Modes</a></li>
     </ul>
-    <h3 id="hf_home_station"> HF Home Station</h3>
-    <p>My home station is the Icom IC-7300.  The transceiver has no modification.  Besides the common clock battery issue (aka loosing of time) the transceiver is great. 
-    </p>
-    <p>To deal with clock issue I've created the <a href="https://github.com/cniesen/IcomClockOmniRig">IcomClockOmniRig</a> Windows executable to set the Icom IC-7300 clock via OmniRig.  
-       That works out quite well and I can set the IC-7300's clock to UTC as well.  Check IcomClockOmniRig program out if you have an IC-7300.  For non-windows computers you may want to 
-       check out the <a href="https://github.com/cniesen/IC-7300-time-sync">IC-7300-time-sync</a> Python script.  The only drawback here is that the COM port can't be shared like with OmniRig.
-    </p>
-    <p>I'm using a Dell Latitude E6540 laptop with the Dell Dell E-Port Plus port replicator (aka dock) running windows.  The computer is connected to the IC-7300 via the USB A-to-B cable 
-    and the USB to CI-V cable.  This allows two programs to communicate with the IC-7300 concurrently via different COM ports.  I run OmniRig on the CI-V port and whatever digital mode I 
-    use on the USB port. 
-    </p>
+
+    <h2 id="hf_home_station"> HF Home Station</h2>
+    <p>My home station is the Icom IC-7300.  The transceiver has no modification.  Besides the common clock battery issue (aka loosing of time) 
+      the transceiver is great. </p>
+    <p>To deal with clock issue I've created the <a href="https://github.com/cniesen/IcomClockOmniRig">IcomClockOmniRig</a> Windows executable 
+      to set the Icom IC-7300 clock via OmniRig. That works out quite well and I can set the IC-7300's clock to UTC as well.  Check IcomClockOmniRig
+      program out if you have an IC-7300.  For non-windows computers you may want to check out the 
+      <a href="https://github.com/cniesen/IC-7300-time-sync">IC-7300-time-sync</a> Python script.  The only drawback here is that the COM port 
+      can't be shared like with OmniRig. </p>
+    <p>I'm using a Dell Latitude E6540 laptop with the Dell Dell E-Port Plus port replicator (aka dock) running windows.  The computer is connected
+      to the IC-7300 via the USB A-to-B cable and the USB to CI-V cable.  This allows two programs to communicate with the IC-7300 concurrently via 
+      different COM ports.  I run OmniRig on the CI-V port and whatever digital mode I use on the USB port. </p>
     <p>To enable this in the IC-7300 the following settings are used:</p>
     <ul>
       <li> Set -> Connections -> CI-V -> CI-V Baud Rate: 19200 (fastest speed)</li>
       <li> Set -> Connections -> CI-V -> CI-V Address: 94h (default)</li>
       <li> Set -> Connections -> CI-V -> CI-V Transceive: OFF</li>
       <li> Set -> Connections -> CI-V -> CI-V Output (for ANT): OFF</li>
-      <li> Set -> Connections -> CI-V -> CI-V USB Port: Unlink from [REMOTE] (This separates the CI-V and USB ports from each other so they can utilize different speeds.)</li>      
+      <li> Set -> Connections -> CI-V -> CI-V USB Port: Unlink from [REMOTE] (This separates the CI-V and USB ports from each other so they can 
+        utilize different speeds.)</li>      
       <li> Set -> Connections -> CI-V -> CI-V USB Baud Rate: 115200 (fastest speed)</li>
       <li> Set -> Connections -> CI-V -> CI-V USB Echo Back: ON</li>
     </ul>
-      
-    <dl id="omnirig">
-      <dt>OmniRig Rig Control</dt>
-      <dd>
-        <p>OmniRig allows multiple programs to communicate via a single COM port with the transceiver.  The awesomeness of this is that you don't need to shut down an app while using another
-        app concurrently.  <a href="http://www.dxatlas.com/omnirig/">OmniRig</a> is free and the source code is available.  The code is very mature and works great.  The only downside is 
-        that it works only with Windows due to the technology used.<p>
+
+    <div id="omnirig">
+      <h3>OmniRig Rig Control</h3>
+      <div class="indent-section">
+        <p>OmniRig allows multiple programs to communicate via a single COM port with the transceiver.  The awesomeness of this is that you don't 
+          need to shut down an app while using another app concurrently.  <a href="http://www.dxatlas.com/omnirig/">OmniRig</a> is free and the 
+          source code is available.  The code is very mature and works great.  The only downside is that it works only with Windows due to the 
+          technology used.</p>
         <p>My OmniRig configuration is as follows:</p>
         <ul>
           <li>Rig type: IC-7300-DATA</li>
@@ -136,19 +145,22 @@
           <li>Poll int., ms: 500</li>
           <li>Timeout, ms: 4000</li>
         </ul>
-      </dd>
-    </dl>
-    <dl id="log4om">
-      <dt>Log4OM Logging Software</dt>
-      <dd>
-        <p>For logging I primarily use <a href="https://www.log4om.com/">Log4OM</a>, a free but not open source Windows logging software that utilizes OmniRig for rig control.</p>
+      </div>
+    </div>
+
+    <div id="log4om">
+      <h3>Log4OM Logging Software</h3>
+      <div class="indent-section">
+        <p>For logging I primarily use <a href="https://www.log4om.com/">Log4OM</a>, a free but not open source Windows logging software that 
+          utilizes OmniRig for rig control.</p>
         <p>I use OmniRig for cat control with the following settings:</p>
         <ul>
           <li>CAT Engine: Omnirig</li>
           <li>Auto start CAT: checked</li>
         </ul>
-        <p>To allow WSJT-X automatically add log entries I added the following settings under "Software Integration" -> "Connections" -> "UDP Proxy" -> "UDP PROXY INBOUND":<br/>
-          Using the UDP Proxy allows other clients like <a href="https://gridtracker.org/">GridTracker</a> to listen to the UDP traffic on port 2238.
+        <p>To allow WSJT-X automatically add log entries I added the following settings under "Software Integration" -> "Connections" -> "UDP 
+          Proxy" -> "UDP PROXY INBOUND":<br/>
+          Using the UDP Proxy allows other clients like <a href="https://gridtracker.org/">GridTracker</a> to listen to the UDP traffic on port 2238.</p>
         <ul>
           <li>Connection name: WSJT-X</li>
           <li>Source address - IP Address: 127.0.0.1</li>
@@ -158,20 +170,33 @@
           <li>Internal relay to UDP inbound service - Service name: JT_MESSAGE</li>
           <li>UDP proxy parameters: All are checked (SAVE_NEW_QSO, USE_EXTERNAL_DATA, UPLOAD_QSO, UPDATE_CQ_ITUZONE)</li>
         </ul> 
-        <p>Similarly to allow my <a href="https://github.com/cniesen/NetLoggerElf">NetLoggerElf software</a> to add QSOs I added the following settings under "Software Integration" -> "Connections" -> "UDP" -> "UDP INBOUND":  
+        <p>Similarly to allow my <a href="https://github.com/cniesen/NetLoggerElf">NetLoggerElf software</a> to add QSOs I added the following settings 
+          under "Software Integration" -> "Connections" -> "UDP" -> "UDP INBOUND":</p>
         <ul>
           <li>Connection name: NET LOGGER ELF</li>
           <li>Port: 8899</li>
           <li>Service type: ADIF_MESSAGE</li>
           <li>UDP Inbound parameters: None are checked</li>
         </ul> 
-      </dd>
-    </dl>
-    <dl id="wsjtx">
-      <dt>WSJT-X</dt>
-      <dd>
-        <p>An introduction to WSJT-X isn't needed with FT8 being so popular.  The <a href="https://wsjt.sourceforge.io/wsjtx.html">WSJT-X software</a> is free and 
-        open source.  Occasionally I do run other modes like FT4 or JT65.</p>
+        <p>
+          <div style="display: flex; gap: 20px; align-items: top; padding: 0px 80px 0px 40px;">
+            <img src="log4om-multi-user-small.png" data-fullsrc="log4om-multi-user.png" alt="Windows shortcut for Log4OM multi user support" class="image-zoom" />
+            <div>
+              <h4>Multi callsign/user support</h4>
+              <p>Starting wsjt-x with The command line option " --CONFIG:e83c8c61-4a75-4d94-7d92-5f83106c4490" allows you to use different configurations.</p>
+              <p>A new configuration is first created through the "Settings --> Program Configuration --> User Configuration".  At this point you can see the
+                configuration key.  The chain link button can also be used to create the shortcut link on the desktop.</p>
+            </div>
+          </div>
+        </p>
+      </div>
+    </div>
+
+    <div id="wsjtx">
+      <h3>WSJT-X</h3>
+      <div class="indent-section">
+        <p>An introduction to WSJT-X isn't needed with FT8 being so popular.  The <a href="https://wsjt.sourceforge.io/wsjtx.html">WSJT-X software</a> is 
+          free and open source.  Occasionally I do run other modes like FT4 or JT65.</p>
         <p>My WSJT-X rig control settings are:</p>
         <ul>
           <li>Rig: OmniRig Rig 1</li>
@@ -189,12 +214,24 @@
           <li>Notify on accepted UDP request: checked</li>
           <li>Accepted UDP request restores window: checked</li>          
         </ul>
-      </dd>
-    </dl>
-    <dl id="fldigi">
-      <dt>Fldigi</dt>
-      <dd>
-        <p>Fldigi is the all-round tool for digital communication. The <a href="http://www.w1hkj.org/">Fldigi software</a> is free and open source.  Some of my used modes are PSK, RTTY and Hell.</p>
+        <p>
+          <div style="display: flex; gap: 20px; align-items: top; padding: 0px 80px 0px 40px;">
+            <img src="wsjt-x-multi-user-small.png" data-fullsrc="wsjt-x-multi-user.png" alt="Windows shortcut for WSJT-X multi user support" class="image-zoom" />
+            <div>
+              <h4>Multi callsign/user support</h4>
+              <p>Starting wsjt-x with the command line option "--rig-name=xxxx" allows you to use different configurations.</p>
+              <p>To create a new configuration, just start the app with a new rig-name.</p>
+            </div>
+          </div>
+        </p>
+      </div>
+    </div>
+
+    <div id="fldigi">
+      <h3>Fldigi</h3>
+      <div class="indent-section">
+        <p>Fldigi is the all-round tool for digital communication. The <a href="http://www.w1hkj.org/">Fldigi software</a> is free and open source.  
+          Some of my used modes are PSK, RTTY and Hell.</p>
         <p>I use RigCat with the following settings:</p>
         <ul>
           <li>Rig description file: IC-7300.xml</li>
@@ -215,12 +252,14 @@
           <li>VSP Enable: unchecked</li>
           <li>Restore UART Settings on Close: checked</li>
         </ul>
-      </dd>
-    </dl>
-    <dl id="mmsstv">
-      <dt>MMSSTV</dt>
-      <dd>
-        <p>Even though <a href="https://radiogalena.es/yoniq/">YONIQ</a> has Omnirig support, I prefer <a href="https://hamsoft.ca/pages/mmsstv.php">MMSTV</a> as it's more stable for me.  This program is an old and mature program for SSTV.</p>
+      </div>
+    </div>
+
+    <div id="mmsstv">
+      <h3>MMSSTV</h3>
+      <div class="indent-section">
+        <p>Even though <a href="https://radiogalena.es/yoniq/">YONIQ</a> has Omnirig support, I prefer <a href="https://hamsoft.ca/pages/mmsstv.php">MMSTV</a> 
+          as it's more stable for me.  This program is an old and mature program for SSTV.</p>
         <p>My MMSTV rig control settings are:</p>
         <ul>
           <li>Port: COM 5 (Silicon Labs CP210x USB to UART Bridge)</li>
@@ -238,15 +277,16 @@
           <li>Tx: \$FEFExxE01C0001FD\w10</li>
           <li>VFO polling: ICOM CI-V</li>
           <li>Polling interval: 1s</li>
-          <li>(bottom drop-down): Icom  xx=addr 01-7F</bottom></li>
+          <li>(bottom drop-down): Icom  xx=addr 01-7F</li>
         </ul>
-      </dd>
-    </dl>
-    <dl id="js8call">
-      <dt>JS8Call</dt>
-      <dd>
-        <p>JS8Call took FT8 one step further and made it into a mode that can be used for real communication.  The <a href="http://js8call.com/">JS8Call</a> is free and open source.  The project has 
-        received the <a href="https://arsaward.com/award-recipients.html">2021 Amateur Radio Software Award</a>
+      </div>
+    </div>
+
+    <div id="js8call">
+      <h3>JS8Call</h3>
+      <div class="indent-section">
+        <p>JS8Call took FT8 one step further and made it into a mode that can be used for real communication.  The <a href="http://js8call.com/">JS8Call</a> 
+          is free and open source.  The project has received the <a href="https://arsaward.com/award-recipients.html">2021 Amateur Radio Software Award</a></p>
         <p>My JS8Call rig control settings are:</p>
         <ul>
           <li>Rig: IC-7300</li>
@@ -262,13 +302,14 @@
           <li>Split Operation: Fake It</li>
           <li>Tx delay: 0.2s</li>
         </ul>
-      </dd>
-    </dl>
-    <dl id="n3fjp">
-      <dt>N3FJP Logger</dt>
-      <dd>
-        <p>If I'm somewhat serious about running a contest I install the <a href="https://www.n3fjp.com/">N3FJP logging software</a> for the specific contest since I already bought
-        the bundle and the logger is easy to use.<p>
+      </div>
+    </div>
+
+    <div id="n3fjp">
+      <h3>N3FJP Logger</h3>
+      <div class="indent-section">
+        <p>If I'm somewhat serious about running a contest I install the <a href="https://www.n3fjp.com/">N3FJP logging software</a> for the specific 
+          contest since I already bought the bundle and the logger is easy to use.</p>
         <p>My rig settings are:</p>
         <ul>
           <li>Select Rig: Icom</li>
@@ -283,23 +324,29 @@
           <li>Command to Read Frequency: FE FE 94 E0 03 FD</li>
           <li>Command to Read Mode: FE FE 94 E0 04 FD</li>
         </ul>
-      </dd>
-    </dl>
-    <dl id="icom_clock_omni_rig">
-      <dt>IcomClockOmniRig</dt>
-      <dd>
-        <p>As mentioned above, I'm using the IcomClockOmniRig to set the time to UTC on the IC-7300.  <a href="https://github.com/cniesen/IcomClockOmniRig">IcomClockOmniRig</a> is free, open 
-        source and has been rock solid for me.  Of course I'm the author of the program.  The following command runs whenever I start up Log4OM but I also have the same
-        command available as a shortcut in case I want to execute it some other time:</p>
+      </div>
+    </div>
+
+    <div id="icom_clock_omni_rig">
+      <h3>IcomClockOmniRig</h3>
+      <div class="indent-section">
+        <p>As mentioned above, I'm using the IcomClockOmniRig to set the time to UTC on the IC-7300.  
+          <a href="https://github.com/cniesen/IcomClockOmniRig">IcomClockOmniRig</a> is free, open source and has been rock solid for me.  
+          Of course I'm the author of the program.  The following command runs whenever I start up Log4OM but I also have the same command available 
+          as a shortcut in case I want to execute it some other time:</p>
         <code>IcomClockOmniRig.exe -u</code>
-      </dd>
-    </dl>
-    <dl id="netlogger_elf">
-      <dt>NetLogger Elf</dt>
-      <dd>
-        <p>For logging and participating in the 3905 Century Club nets and occasionally the OMISS nets I use the free but not open source <a href="https://www.netlogger.org/">Netlogger 
-        software</a> I wrote the <a href="https://github.com/cniesen/NetLoggerElf">NetLogger Elf software</a> to print QSL cards or QSO labels for commercially made QSL cards.  It also insert logs into Log4OM.  This software is free and open source, but is probably a bit more involved with the setup.</p>
-        <p>In the past I was printing the QSL cards with it but now I'm printing labels instead so I can use the <a href="/qsl"> cool QSL cards that my daughter created</a>.  My NetLogger Elf configuration (config.yml) for this is:</p>
+      </div>
+    </div>
+
+    <div id="netlogger_elf">
+      <h3>NetLogger Elf</h3>
+      <div class="indent-section">
+        <p>For logging and participating in the 3905 Century Club nets and occasionally the OMISS nets I use the free but not open source 
+          <a href="https://www.netlogger.org/">Netlogger software</a> I wrote the <a href="https://github.com/cniesen/NetLoggerElf">NetLogger Elf 
+          software</a> to print QSL cards or QSO labels for commercially made QSL cards.  It also insert logs into Log4OM.  This software is free 
+          and open source, but is probably a bit more involved with the setup.</p>
+        <p>In the past I was printing the QSL cards with it but now I'm printing labels instead so I can use the <a href="/qsl"> cool QSL cards 
+          that my daughter created</a>.  My NetLogger Elf configuration (config.yml) for this is:</p>
         <div class="box">
           <pre><code>
 qslCard:
@@ -324,38 +371,36 @@ adif:
     itu: 7
     cq: 4
           </code></pre>
-        </div>   
-      </dd>
-    </dl>
+        </div>
+      </div>   
+    </div>
     
-    <h3 id="hf_portable_station">HF Station Portable Station</h3>
-    <p>For portable operations like POTA activations, I'm either using a Yeasu FT-857d with or without an LDG YT100 tuner depending on the antenna or a QMX 60/40/30/20/17/15. when for portable operations like POTA activations. I primarily operate voice and log directly on my phone.  For logging I found the free and open source app <a href="https://polo.ham2k.com/">Ham2K Portable Logger (aka PoLo)</a> quite great. Even with the small screen of my android phone the logging is no problem.</p>
-    <p>Very occasionally I use the Dell Latitude E6540 laptop with the Yeasu FT-857d in the field for digital modes. With the Yeasu FT-857d I only have one rig control connection.
+    <h2 id="hf_portable_station">HF Station Portable Station</h2>
+    <p>For portable operations like POTA activations, I'm either using a Yeasu FT-857d with or without an LDG YT100 tuner depending on the antenna or a QMX 60/40/30/20/17/15. I primarily operate voice and log directly on my phone.  For logging I found the free and open source app <a href="https://polo.ham2k.com/">Ham2K Portable Logger (aka PoLo)</a> quite great. Even with the small screen of my android phone the logging is no problem.</p>
+    <p>Very occasionally I use the Dell Latitude E6540 laptop with the Yeasu FT-857d in the field for digital modes. With the Yeasu FT-857d I only have one rig control connection.</p>
     
-    <dl id="portable_omnirig">
-      <dt>OmniRig Rig Control</dt>
-      <dd>
-        <p>Since the computer is used and configured for the home station already, I continue to use OmniRig with Log4OM even though no other software is utilizing OmniRig.<p>
-        <p>My OmniRig configuration is as follows:</p>
-        <ul>
-          <li>Rig type: FT-857</li>
-          <li>Port: COM 6</li>
-          <li>Baud Rate: 4800</li>
-          <li>Data bits: 8</li>
-          <li>Parity: None</li>
-          <li>Stop bits: 2</li>
-          <li>RTS: Low</li>
-          <li>DTR: Low</li>
-          <li>Poll int., ms: 300</li>
-          <li>Timeout, ms: 4000</li>
-        </ul>
-      </dd>
-    </dl>
+    <div id="portable_omnirig">
+      <h3>OmniRig Rig Control</h3>
+      <p>Since the computer is used and configured for the home station already, I continue to use OmniRig with Log4OM even though no other software is utilizing OmniRig.<p>
+      <p>My OmniRig configuration is as follows:</p>
+      <ul>
+        <li>Rig type: FT-857</li>
+        <li>Port: COM 6</li>
+        <li>Baud Rate: 4800</li>
+        <li>Data bits: 8</li>
+        <li>Parity: None</li>
+        <li>Stop bits: 2</li>
+        <li>RTS: Low</li>
+        <li>DTR: Low</li>
+        <li>Poll int., ms: 300</li>
+        <li>Timeout, ms: 4000</li>
+      </ul>
+    </div>
 
-    <h3 id="mobile_station">HF/VHF/UHF Mobile Station</h3>
+    <h2 id="mobile_station">HF/VHF/UHF Mobile Station</h2>
     <p>Coming soon.</p>
 
-    <h3 id="digital_mode_software">Software for Digital Modes</h3>
+    <h2 id="digital_mode_software">Software for Digital Modes</h2>
     <p>Here I list of software I use for the various digital modes. Note that I primarily run Windows and Android OS.</p>
     <p>
       <label for="fSearch">Search</label>
@@ -481,14 +526,16 @@ adif:
               {title: "Operating System", field: "os", headerFilter:"list", headerFilterParams:{values:{"":"(show all)", "Android":"Android", "Windows":"Windows"}}},
               {title: "Popularity", field: "popularity", headerFilter:"list", headerFilterParams:{values:{"":"(show all)", "Popular":"Popular", "Niche":"Niche"}}},
               {title: "Software", field: "software_title"},
-              {title: "Software License", field: "software_license", headerFilter:"list", headerFilterParams:{values:{"":"(show all)", "Free":"Fee", "Free & open source":"Free & open source", "Paid":"Paid"}}},
+              {title: "Software License", field: "software_license", headerFilter:"list", headerFilterParams:{values:{"":"(show all)", "Free":"Free", "Free & open source":"Free & open source", "Paid":"Paid"}}},
               {title: "Software Download", field: "software_url", formatter:"link", formatterParams:{target:"_blank"}},
               {title: "Software Source Code", field: "software_source", formatter:"link", formatterParams:{target:"_blank"}},
             ]
         });
       </script>
 
-      
+      <div id="image-modal" class="image-modal">
+        <img id="modal-img" src="" alt="Expanded view" />
+      </div>
 
     </div>
   </body>
