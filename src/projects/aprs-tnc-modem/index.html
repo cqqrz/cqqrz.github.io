@@ -1,6 +1,10 @@
 <!-- build:title -->TNC Modem<!-- /build:title -->
+<!-- build:head -->
+	<script src="/lib/image-zoom/image-zoom.js" defer></script>
+	<link rel="stylesheet" href="/lib/image-zoom/image-zoom.css" />
+<!-- /build:head -->
 <!-- build:content -->
-    <h3 class="status-on-hold">TNC Modem - APRS with an old smart phone, arduino, and a hand held radio</h3>
+    <h1 class="status-on-hold">TNC Modem - APRS with an old smart phone, arduino, and a hand held radio</h1>
     <p>
       I am building a slightly modified version of the Micro Modem by Mark Quist 
       (<a href="http://unsigned.io/projects/micromodem/">http://unsigned.io/projects/micromodem/</a>).
@@ -9,7 +13,7 @@
       ARPS positions and messages.
     </p>
     <div class="center">  
-      <a href="20171205_002838.jpg"><img alt="breadboard test setup" src="20171205_002838-small.jpg" /></a><br />
+      <img  src="20171205_002838-small.jpg" data-fullsrc="20171205_002838.jpg" alt="breadboard test setup" class="image-zoom"/>
     </div>
     <p>
       Pre-build firmware for the atmega328p chip (which the Arduino Nano uses) can be found in at
@@ -39,4 +43,8 @@
         <dd>ARPS messages don't seem to be received.  I'm not sure if that's a hardware or software issue.</dd>
       </ul>
     </p>
+
+    <div id="image-modal" class="image-modal">
+      <img id="modal-img" src="" alt="Expanded view" />
+    </div>    
 <!-- /build:content -->

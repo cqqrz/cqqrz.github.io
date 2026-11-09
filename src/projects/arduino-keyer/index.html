@@ -1,39 +1,44 @@
 <!-- build:title -->Arduino Keyer<!-- /build:title -->
+<!-- build:head -->
+	<script src="/lib/image-zoom/image-zoom.js" defer></script>
+	<link rel="stylesheet" href="/lib/image-zoom/image-zoom.css" />
+<!-- /build:head -->
 <!-- build:content -->
-    <h3 class="status-completed">Arduino Keyer</h3>
+    <h1 class="status-completed">Arduino Keyer</h1>
 	<p>
-	  <h4>Arduino Exploratory Keyer v1</h4>
+	  <h2>Arduino Exploratory Keyer v1</h2>
 	  <p>
 	    This keyer was purely exploratory. I came across the NanoKeyer website, looked at the schematics and build this very simplistic keyer.  
 		I quickly discovered the potential of such a keyer in the aid to learn Morse code.
 	  </p>
-	  <a href="arduino-exploratory-keyer-v1.jpg"><img alt="First breadboard version of the Arduino keyer" src="arduino-exploratory-keyer-v1-small.jpg"></a>
+	  <img src="arduino-exploratory-keyer-v1-small.jpg" alt="First breadboard version of the Arduino keyer" data-fullsrc="arduino-exploratory-keyer-v1.jpg" class="image-zoom"/>
     </p>
     <p>
-	  <h4>Arduino Practice Keyer v2</h4>
+	  <h2>Arduino Practice Keyer v2</h2>
       <p>
 	    To learn Morse code I primarily wanted to see what characters I'm sending, kind of like a coach that tells me when I'm doing it wrong.  
 		For that something more permanent than sa breadboard build was necessary.    The pin spacing of the jacks didn't fit the spacing of the 
 		prototyping board so I had to be a bit inventive.
 	  </p>
 	  <br />
-	  <a href="arduino-practice-keyer-v2.jpg"><img alt="arduino practice keyer v2" src="arduino-practice-keyer-v2-small.jpg"></a>
+	  <img src="arduino-practice-keyer-v2-small.jpg" alt="arduino practice keyer v2" data-fullsrc="arduino-practice-keyer-v2.jpg" class="image-zoom">
       <br />
-	  <a href="arduino-practice-keyer-v2-board-adapter-1.jpg"><img alt="hand crafted adapter for pin spacing of jacks" src="arduino-practice-keyer-v2-board-adapter-1-small.jpg"></a>
-	  <a href="arduino-practice-keyer-v2-board-adapter-2.jpg"><img alt="hand crafted adapter for pin spacing of jacks" src="arduino-practice-keyer-v2-board-adapter-2-small.jpg"></a>
-	  <a href="arduino-practice-keyer-v2-board-adapter-3.jpg"><img alt="hand crafted adapter for pin spacing of jacks" src="arduino-practice-keyer-v2-board-adapter-3-small.jpg"></a>
+	  <img src="arduino-practice-keyer-v2-board-adapter-1-small.jpg" alt="hand crafted adapter for pin spacing of jacks" data-fullsrc="arduino-practice-keyer-v2-board-adapter-1.jpg" class="image-zoom"/>
+	  <img src="arduino-practice-keyer-v2-board-adapter-2-small.jpg" alt="hand crafted adapter for pin spacing of jacks" data-fullsrc="arduino-practice-keyer-v2-board-adapter-2.jpg" class="image-zoom"/>
+	  <img src="arduino-practice-keyer-v2-board-adapter-3-small.jpg" alt="hand crafted adapter for pin spacing of jacks" data-fullsrc="arduino-practice-keyer-v2-board-adapter-3.jpg" class="image-zoom"/>
     </p>
 	<p>
-	  <h4>Arduino Practice Keyer v3</h4>
+	  <h2>Arduino Practice Keyer v3</h2>
 	  <p>
 	    I wanted to make another keyer as simple as possible for my CW Academy buddy.  This time I had a 3.5mm jack that fits the spacing.  
 		For the 6.3mm jack I bent the middle pins so that they would not have to go through the board but instead are held in place with a wire 
 		bridge soldered on.  This worked out quite well.  The strip-board also simplified the wiring I had to do.
 	  </p>
-	  <a href="arduino-practice-keyer-v3.jpg"><img alt="arduino practice keyer v3" src="arduino-practice-keyer-v3-small.jpg"></a>
+	  <img src="arduino-practice-keyer-v3-small.jpg" alt="arduino practice keyer v3" data-fullsrc="arduino-practice-keyer-v3.jpg" class="image-zoom"/>
 	  <br />
-	  <a href="arduino-practice-keyer-v3-top.jpg"><img alt="arduino practice keyer v3 top view" src="arduino-practice-keyer-v3-top-small.jpg"></a>
-	  <a href="arduino-practice-keyer-v3-bottom.jpg"><img alt="arduino practice keyer v3 bottom view" src="arduino-practice-keyer-v3-bottom-small.jpg"></a>
+	  <img src="arduino-practice-keyer-v3-top-small.jpg" alt="arduino practice keyer v3 top view" data-fullsrc="arduino-practice-keyer-v3-top.jpg" class="image-zoom"/>
+	  <img src="arduino-practice-keyer-v3-bottom-small.jpg" alt="arduino practice keyer v3 bottom view" data-fullsrc="arduino-practice-keyer-v3-bottom.jpg" class="image-zoom"/>
+
       <h5>Detailed board description:</h5>
 	  <p>
 	    The ArduinoNano is the core/brain of the keyer.  It is attached to the board via two 15 pin female headers.  This is done so that the 
@@ -87,4 +92,8 @@
 	  </p>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/EfIsDVWCrAw?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	</p>
+
+	<div id="image-modal" class="image-modal">
+      <img id="modal-img" src="" alt="Expanded view" />
+    </div>
 <!-- /build:content -->

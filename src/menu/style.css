@@ -23,6 +23,8 @@
 
 .menu-image {
     height: 200px;
+    align-content: center;
+    text-align: center;
 }
 
 .active, .menu-button:hover {
